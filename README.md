@@ -1,7 +1,7 @@
 # Bivariate Color Matrix
 
 http://color.cartoscience.com
-<br>
+<br><br>
 “You make different colors by combining those colors that already exist.”—Herbie Hancock
 <br>
 <p class="footer">Bivariate Color Matrix designed and developed by <a target="_blank" rel="noopener noreferrer" href="http://bradpeter.com/">Brad G. Peter</a></p>
