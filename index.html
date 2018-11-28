@@ -101,7 +101,7 @@ div#d3 {
 
 <div id="banner">
 	<p id="titleCol" class="title">Bivariate Color Matrix</p>
-	<p id="subtitleCol class="subtitle">Two clicks to color mix!</p>
+	<p id="subtitleCol" class="subtitle">Two clicks to color mix!</p>
 </div>
 
 <div id="shadow"></div>
@@ -407,15 +407,15 @@ hueb.on( 'change', function (color) {
 	c15.style.backgroundColor = mix15;
 	ctx15.fillText(mix15.toString().toUpperCase(),30,33);
 
-  document.getElementById("banner").style.backgroundColor=mix11;
-  var lum = chroma(mix11).luminance();
-  if (lum < 0.179) {
-    textCol = "#E8E8E8";
-    } else {
-      textCol = "#202020";
-    }
-    document.getElementById("titleCol").style.color=textCol;
-    document.getElementById("subtitleCol").style.color=textCol;
+	document.getElementById("banner").style.backgroundColor=mix11;
+	var lum = chroma(mix11).luminance();
+  if (lum < 0.6) {
+  	textCol = "#E8E8E8";
+  	} else {
+  		textCol = "#202020";
+  	}
+	document.getElementById("titleCol").style.color=textCol;
+	document.getElementById("subtitleCol").style.color=textCol;
 });
 
 // On change event function for input 2
@@ -540,15 +540,15 @@ hueb2.on( 'change', function (color2) {
 	c15.style.backgroundColor = midCol2;
 	ctx15.fillText(midCol2.toString().toUpperCase(),30,33);
 
-  document.getElementById("banner").style.backgroundColor=mix11;
-  var lum = chroma(mix11).luminance();
-  if (lum < 0.179) {
-    textCol = "#E8E8E8";
-    } else {
-      textCol = "#202020";
-    }
-    document.getElementById("titleCol").style.color=textCol;
-    document.getElementById("subtitleCol").style.color=textCol;
+	document.getElementById("banner").style.backgroundColor=mix11;
+	var lum = chroma(mix11).luminance();
+  if (lum < 0.6) {
+  	textCol = "#E8E8E8";
+  	} else {
+  		textCol = "#202020";
+  	}
+	document.getElementById("titleCol").style.color=textCol;
+	document.getElementById("subtitleCol").style.color=textCol;
 });
 
 </script>
