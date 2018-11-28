@@ -408,7 +408,7 @@ hueb.on( 'change', function (color) {
 	ctx15.fillText(mix15.toString().toUpperCase(),30,33);
 
   document.getElementById("banner").style.backgroundColor=mix11;
-  var lum = chroma(midCol2).luminance();
+  var lum = chroma(mix11).luminance();
   if (lum < 0.179) {
     textCol = "#E8E8E8";
     } else {
@@ -541,7 +541,7 @@ hueb2.on( 'change', function (color2) {
 	ctx15.fillText(midCol2.toString().toUpperCase(),30,33);
 
   document.getElementById("banner").style.backgroundColor=mix11;
-  var lum = chroma(midCol2).luminance();
+  var lum = chroma(mix11).luminance();
   if (lum < 0.179) {
     textCol = "#E8E8E8";
     } else {
