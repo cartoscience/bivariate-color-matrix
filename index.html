@@ -60,19 +60,19 @@ p.footer {
     margin-right: auto;
 }
 div#banner {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  background-color: #B474B4; 
-  width: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #B474B4;
+  width: 100%;
   height: 100px;
 }
 div#shadow {
-  position: absolute; 
-  top: 100px; 
-  left: 0; 
-  background-color: #E8E8E8; 
-  width: 100%; 
+  position: absolute;
+  top: 100px;
+  left: 0;
+  background-color: #E8E8E8;
+  width: 100%;
   height: 4px;
 }
 div#main {
@@ -123,20 +123,23 @@ div#d3 {
 	</div>
 	<div id="d3">
 		<p>Bivariate palette</p>
-		<p class="small">
-		<canvas id="myCanvas7" width="60" height="60"></canvas>
-		<canvas id="myCanvas8" width="60" height="60"></canvas>
-		<canvas id="myCanvas9" width="60" height="60"></canvas>
-		<br>
-		<canvas id="myCanvas10" width="60" height="60"></canvas>
-		<canvas id="myCanvas11" width="60" height="60"></canvas>
-		<canvas id="myCanvas12" width="60" height="60"></canvas>
-		<br>
-		<canvas id="myCanvas13" width="60" height="60"></canvas>
-		<canvas id="myCanvas14" width="60" height="60"></canvas>
-		<canvas id="myCanvas15" width="60" height="60"></canvas>
-		<br>
-		</p>
+		<div class="small">
+			<div>
+				<canvas id="myCanvas7" width="60" height="60"></canvas>
+				<canvas id="myCanvas8" width="60" height="60"></canvas>
+				<canvas id="myCanvas9" width="60" height="60"></canvas>
+			</div>
+			<div>
+				<canvas id="myCanvas10" width="60" height="60"></canvas>
+				<canvas id="myCanvas11" width="60" height="60"></canvas>
+				<canvas id="myCanvas12" width="60" height="60"></canvas>
+			</div>
+			<div>
+				<canvas id="myCanvas13" width="60" height="60"></canvas>
+				<canvas id="myCanvas14" width="60" height="60"></canvas>
+				<canvas id="myCanvas15" width="60" height="60"></canvas>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -443,7 +446,7 @@ hueb2.on( 'change', function (color2) {
   ctx5.fillStyle = textCol;
 	c5.style.backgroundColor = midCol2;
 	ctx5.fillText(midCol2.toString().toUpperCase(),30,33);
-  
+
   // check these
 	ctx7.clearRect(0,0,c7.width,c7.height);
 	mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
