@@ -1,3 +1,6 @@
+body {
+  background-color: #202020;
+  }
 :root {
 	--font-variable: "Comfortaa";
 }
@@ -37,12 +40,18 @@ p.subtitle {
 	color: #202020;
 	font-style: italic;
 }
-p.footer {
+.footer {
 	text-align: center;
 	font-size: 11px;
 	font-family: var(--font-variable);
 	line-height: 1;
 	color: #E8E8E8;
+}
+#footer {
+	clear:left;
+	margin: 10px;
+	padding-top: 5px;
+	line-height: 0.5;
 }
 .image {
     display: block;
@@ -76,12 +85,7 @@ div#main {
   padding-left: 10px;
   margin: 10px;
 }
-div#footer {
-	clear:left;
-	margin: 10px;
-	padding-top: 5px;
-	line-height: 0.5;
-}
+
 div#d3 {
 	display:inline-block;
 }
