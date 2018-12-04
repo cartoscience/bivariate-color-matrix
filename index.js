@@ -1,4 +1,3 @@
-// Huebee by @Metafizzy
 var hueb = new Huebee( '.color-input', {
   saturations: 3,
   notation: "hex",
