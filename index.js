@@ -299,7 +299,7 @@ hueb.on( 'change', function (color) {
 	var de36 = chroma.deltaE(mix14,mix15);
 
 	var deMin = Math.min(de1,de2,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,de13,de14,de15,de16,de17,de18,de19,de20,de21,de22,de23,de24,de25,de26,de27,de28,de29,de30,de31,de32,de33,de34,de35,de36);
-  	if (deMin < 10) {
+  	if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
   		deCol = "#00AA00";
@@ -479,7 +479,7 @@ hueb2.on( 'change', function (color2) {
 	var de36 = chroma.deltaE(mix14,midCol2);
 
 	var deMin = Math.min(de1,de2,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,de13,de14,de15,de16,de17,de18,de19,de20,de21,de22,de23,de24,de25,de26,de27,de28,de29,de30,de31,de32,de33,de34,de35,de36);
-  	if (deMin < 10) {
+  	if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
   		deCol = "#00AA00";
