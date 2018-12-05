@@ -47,6 +47,30 @@ p.subtitle {
 	line-height: 1;
 	color: #E8E8E8;
 }
+p.delta {
+	text-align: center;
+	font-size: 13px;
+	font-family: var(--font-variable);
+	line-height: 1;
+	font-weight: 300;
+	color: #E8E8E8;
+}
+p.deltaMean {
+	text-align: center;
+	font-size: 22px;
+	font-family: var(--font-variable);
+	line-height: 0.5;
+	font-weight: 300;
+	color: #E8E8E8;
+}
+p.deltaMin {
+	text-align: center;
+	font-size: 22px;
+	font-family: var(--font-variable);
+	line-height: 0.5;
+	font-weight: 900;
+	color: #00AA00;
+}
 #footer {
 	clear:left;
 	margin: 10px;
