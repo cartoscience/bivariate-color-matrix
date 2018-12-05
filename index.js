@@ -133,28 +133,25 @@ ctx15.fillText(L1H2,30,33);
 // On change event function for input 1
 hueb.on( 'change', function (color) {
 	var textCol;
-	ctx.clearRect(0,0,c.width,c.height);
-	var lum = chroma(color).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx.fillStyle = textCol;
-	c.style.backgroundColor = color;
-  ctx.fillText(color,30,33);
+  midCol = chroma.scale([color,L1])(0.5);
 
-	ctx2.clearRect(0,0,c2.width,c2.height);
-	midCol = chroma.scale([color,L1])(0.5);
-	var lum = chroma(midCol).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx2.fillStyle = textCol;
-	c2.style.backgroundColor = midCol;
-	ctx2.fillText(midCol.toString().toUpperCase(),30,33);
+  const canvasChange = (canvas, context, color) => {
+    context.clearRect(0,0,canvas.width,canvas.height);
+  	var lum = chroma(color).luminance();
+    if (lum < 0.179) {
+    	textCol = "#E8E8E8";
+    	} else {
+    		textCol = "#202020";
+    	}
+    context.fillStyle = textCol;
+  	canvas.style.backgroundColor = color;
+    context.fillText(color.toString().toUpperCase(),30,33);
+  }
+
+  canvasChange(c, ctx, color);
+  canvasChange(c2, ctx2, midCol)
+
+  // ctx3 does not change
 
 	ctx7.clearRect(0,0,c7.width,c7.height);
 	var lum = chroma(midCol).luminance();
@@ -227,6 +224,8 @@ hueb.on( 'change', function (color) {
 	c12.style.backgroundColor = mix12;
 	ctx12.fillText(mix12.toString().toUpperCase(),30,33);
 
+  // ctx13 does not change
+
 	ctx14.clearRect(0,0,c14.width,c14.height);
 	mix14 = chroma.mix(L1,document.getElementById("myCanvas5").style.backgroundColor);
 	var lum = chroma(mix14).luminance();
@@ -260,7 +259,7 @@ hueb.on( 'change', function (color) {
   	}
 	document.getElementById("titleCol").style.color=textCol;
 	document.getElementById("subtitleCol").style.color=textCol;
-	
+
 	var de1 = chroma.deltaE(midCol,mix8);
 	var de2 = chroma.deltaE(midCol,mix9);
 	var de3 = chroma.deltaE(midCol,mix10);
@@ -335,7 +334,8 @@ hueb2.on( 'change', function (color2) {
 	c5.style.backgroundColor = midCol2;
 	ctx5.fillText(midCol2.toString().toUpperCase(),30,33);
 
-  // check these
+  // ctx6 does not change
+
 	ctx7.clearRect(0,0,c7.width,c7.height);
 	mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
 	var lum = chroma(mix7).luminance();
@@ -408,6 +408,8 @@ hueb2.on( 'change', function (color2) {
 	c12.style.backgroundColor = mix12;
 	ctx12.fillText(mix12.toString().toUpperCase(),30,33);
 
+  // ctx13 does not change
+
 	ctx14.clearRect(0,0,c14.width,c14.height);
 	mix14 = chroma.mix(L1,midCol2);
 	var lum = chroma(mix14).luminance();
@@ -440,7 +442,7 @@ hueb2.on( 'change', function (color2) {
   	}
 	document.getElementById("titleCol").style.color=textCol;
 	document.getElementById("subtitleCol").style.color=textCol;
-	
+
 	var de1 = chroma.deltaE(mix7,mix8);
 	var de2 = chroma.deltaE(mix7,mix9);
 	var de3 = chroma.deltaE(mix7,mix10);
