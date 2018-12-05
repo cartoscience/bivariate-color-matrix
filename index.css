@@ -69,10 +69,11 @@ p.deltaMin {
 	padding-top: 5px;
 	line-height: 0.5;
 }
-.image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.footer-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
 }
 div#banner {
   position: absolute;
