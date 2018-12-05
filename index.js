@@ -282,8 +282,6 @@ hueb.on( 'change', function (color) {
 	var de19 = chroma.deltaE(mix14,mix11);
 	var de20 = chroma.deltaE(mix8,mix11);
 
-	var deSum = de1 + de2 + de3 + de4 + de5 + de6 + de7 + de8 + de9 + de10 + de11 + de12 + de13 + de14 + de15 + de16 + de17 + de18 + de19 + de20;
-	var deMean = deSum / 20;
 	var deMin = Math.min(de1,de2,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,de13,de14,de15,de16,de17,de18,de19,de20);
   	if (deMin < 10) {
   		deCol = "#D52A2A";
@@ -291,7 +289,6 @@ hueb.on( 'change', function (color) {
   		deCol = "#00AA00";
   	}
 
-  	document.getElementById("deltaColVal").innerHTML = deMean.toFixed(1);
   	document.getElementById("deltaColMinVal").style.color = deCol;
   	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
@@ -449,8 +446,6 @@ hueb2.on( 'change', function (color2) {
 	var de19 = chroma.deltaE(mix14,mix11);
 	var de20 = chroma.deltaE(mix8,mix11);
 
-	var deSum = de1 + de2 + de3 + de4 + de5 + de6 + de7 + de8 + de9 + de10 + de11 + de12 + de13 + de14 + de15 + de16 + de17 + de18 + de19 + de20;
-	var deMean = deSum / 20;
 	var deMin = Math.min(de1,de2,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,de13,de14,de15,de16,de17,de18,de19,de20);
   	if (deMin < 10) {
   		deCol = "#D52A2A";
@@ -458,7 +453,6 @@ hueb2.on( 'change', function (color2) {
   		deCol = "#00AA00";
   	}
 
-  	document.getElementById("deltaColVal").innerHTML = deMean.toFixed(1);
   	document.getElementById("deltaColMinVal").style.color = deCol;
   	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
