@@ -55,14 +55,6 @@ p.delta {
 	font-weight: 300;
 	color: #E8E8E8;
 }
-p.deltaMean {
-	text-align: center;
-	font-size: 22px;
-	font-family: var(--font-variable);
-	line-height: 0.5;
-	font-weight: 300;
-	color: #E8E8E8;
-}
 p.deltaMin {
 	text-align: center;
 	font-size: 22px;
