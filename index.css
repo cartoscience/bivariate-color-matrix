@@ -46,6 +46,8 @@ p {
 	font-family: var(--font-variable);
 	line-height: 1;
 	color: #E8E8E8;
+}
+#footer {
 	clear:left;
 	margin: 10px;
 	padding-top: 5px;
