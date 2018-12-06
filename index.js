@@ -1,3 +1,35 @@
+const c = document.getElementById("myCanvas");
+const c2 = document.getElementById("myCanvas2");
+const c3 = document.getElementById("myCanvas3");
+const c4 = document.getElementById("myCanvas4");
+const c5 = document.getElementById("myCanvas5");
+const c6 = document.getElementById("myCanvas6");
+const c7 = document.getElementById("myCanvas7");
+const c8 = document.getElementById("myCanvas8");
+const c9 = document.getElementById("myCanvas9");
+const c10 = document.getElementById("myCanvas10");
+const c11 = document.getElementById("myCanvas11");
+const c12 = document.getElementById("myCanvas12");
+const c13 = document.getElementById("myCanvas13");
+const c14 = document.getElementById("myCanvas14");
+const c15 = document.getElementById("myCanvas15");
+
+const ctx = c.getContext("2d");
+const ctx2 = c2.getContext("2d");
+const ctx3 = c3.getContext("2d");
+const ctx4 = c4.getContext("2d");
+const ctx5 = c5.getContext("2d");
+const ctx6 = c6.getContext("2d");
+const ctx7 = c7.getContext("2d");
+const ctx8 = c8.getContext("2d");
+const ctx9 = c9.getContext("2d");
+const ctx10 = c10.getContext("2d");
+const ctx11 = c11.getContext("2d");
+const ctx12 = c12.getContext("2d");
+const ctx13 = c13.getContext("2d");
+const ctx14 = c14.getContext("2d");
+const ctx15 = c15.getContext("2d");
+
 const hueb = new Huebee( '.color-input', {
   saturations: 3,
   notation: "hex",
@@ -12,18 +44,24 @@ const hueb2 = new Huebee( '.color-input2', {
   staticOpen: true
 });
 
+const lightFont = "#E8E8E8";
+const darkFont = "#202020";
+
 const lumCheck = (lum, standard) => {
-  return lum < standard ? "#E8E8E8" : "#202020";
+  return lum < standard ? lightFont : darkFont;
 }
 
 const canvasChange = (canvas, context, color) => {
   context.clearRect(0,0,canvas.width,canvas.height);
   textCol = lumCheck(chroma(color).luminance(), 0.179);
 
+  context.textAlign = "center";
   context.fillStyle = textCol;
   canvas.style.backgroundColor = color;
   context.fillText(color.toString().toUpperCase(),30,33);
 }
+
+let textCol;
 
 // Default initialization colors
 // Variable 1
@@ -45,107 +83,24 @@ var L1L2 = "#E8E8E8";
 var L1M2 = "#AEAEEE";
 var L1H2 = "#7474F4";
 
-// Variable one canvases initalization symbology
-var c = document.getElementById("myCanvas");
-c.style.backgroundColor = H1;
-var ctx = c.getContext("2d");
-ctx.textAlign = "center";
-ctx.fillStyle = "#e8e8e8";
-ctx.fillText(H1,30,33);
-
-var c2 = document.getElementById("myCanvas2");
-c2.style.backgroundColor = M1;
-var ctx2 = c2.getContext("2d");
-ctx2.textAlign = "center";
-ctx2.fillText(M1,30,33);
-
-var c3 = document.getElementById("myCanvas3");
-c3.style.backgroundColor = L1;
-var ctx3 = c3.getContext("2d");
-ctx3.textAlign = "center";
-ctx3.fillText(L1,30,33);
-
-// Variable two canvases initalization symbology
-var c4 = document.getElementById("myCanvas4");
-c4.style.backgroundColor = H2;
-var ctx4 = c4.getContext("2d");
-ctx4.textAlign = "center";
-ctx4.fillStyle = "#e8e8e8";
-ctx4.fillText(H2,30,33);
-
-var c5 = document.getElementById("myCanvas5");
-c5.style.backgroundColor = M2;
-var ctx5 = c5.getContext("2d");
-ctx5.textAlign = "center";
-ctx5.fillText(M2,30,33);
-
-var c6 = document.getElementById("myCanvas6");
-c6.style.backgroundColor = L2;
-var ctx6 = c6.getContext("2d");
-ctx6.textAlign = "center";
-ctx6.fillText(L2,30,33);
-
-// Grid canvases initalization symbology
-var c7 = document.getElementById("myCanvas7");
-c7.style.backgroundColor = H1L2;
-var ctx7 = c7.getContext("2d");
-ctx7.textAlign = "center";
-ctx7.fillText(H1L2,30,33);
-
-var c8 = document.getElementById("myCanvas8");
-c8.style.backgroundColor = H1M2;
-var ctx8 = c8.getContext("2d");
-ctx8.textAlign = "center";
-ctx8.fillStyle = "#e8e8e8";
-ctx8.fillText(H1M2,30,33);
-
-var c9 = document.getElementById("myCanvas9");
-c9.style.backgroundColor = H1H2;
-var ctx9 = c9.getContext("2d");
-ctx9.textAlign = "center";
-ctx9.fillStyle = "#e8e8e8";
-ctx9.fillText(H1H2,30,33);
-
-var c10 = document.getElementById("myCanvas10");
-c10.style.backgroundColor = M1L2;
-var ctx10 = c10.getContext("2d");
-ctx10.textAlign = "center";
-ctx10.fillText(M1L2,30,33);
-
-var c11 = document.getElementById("myCanvas11");
-c11.style.backgroundColor = M1M2;
-var ctx11 = c11.getContext("2d");
-ctx11.textAlign = "center";
-ctx11.fillText(M1M2,30,33);
-
-var c12 = document.getElementById("myCanvas12");
-c12.style.backgroundColor = M1H2;
-var ctx12 = c12.getContext("2d");
-ctx12.textAlign = "center";
-ctx12.fillStyle = "#e8e8e8";
-ctx12.fillText(M1H2,30,33);
-
-var c13 = document.getElementById("myCanvas13");
-c13.style.backgroundColor = L1L2;
-var ctx13 = c13.getContext("2d");
-ctx13.textAlign = "center";
-ctx13.fillText(L1L2,30,33);
-
-var c14 = document.getElementById("myCanvas14");
-c14.style.backgroundColor = L1M2;
-var ctx14 = c14.getContext("2d");
-ctx14.textAlign = "center";
-ctx14.fillText(L1M2,30,33);
-
-var c15 = document.getElementById("myCanvas15");
-c15.style.backgroundColor = L1H2;
-var ctx15 = c15.getContext("2d");
-ctx15.textAlign = "center";
-ctx15.fillText(L1H2,30,33);
+canvasChange(c, ctx, H1);
+canvasChange(c2, ctx2, M1);
+canvasChange(c3, ctx3, L1);
+canvasChange(c4, ctx4, H2);
+canvasChange(c5, ctx5, M2);
+canvasChange(c6, ctx6, L2);
+canvasChange(c7, ctx7, H1L2);
+canvasChange(c8, ctx8, H1M2);
+canvasChange(c9, ctx9, H1H2);
+canvasChange(c10, ctx10, M1L2);
+canvasChange(c11, ctx11, M1M2);
+canvasChange(c12, ctx12, M1H2);
+canvasChange(c13, ctx13, L1L2);
+canvasChange(c14, ctx14, L1M2);
+canvasChange(c15, ctx15, L1H2);
 
 // On change event function for input 1
 hueb.on( 'change', function (color) {
-	let textCol;
   let midCol = chroma.scale([color,L1])(0.5);
   let mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
   let mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
@@ -224,7 +179,6 @@ hueb.on( 'change', function (color) {
 
 // On change event function for input 2
 hueb2.on( 'change', function (color) {
-	let textCol;
   let midCol = chroma.scale([color,L1])(0.5);
   let mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
   let mix8 = chroma.mix(midCol,document.getElementById("myCanvas").style.backgroundColor);
@@ -292,7 +246,7 @@ hueb2.on( 'change', function (color) {
 	}
 
   textCol = lumCheck(chroma(mix11).luminance(), 0.6);
-  
+
   document.getElementById("banner").style.backgroundColor = mix11;
 	document.getElementById("titleCol").style.color = textCol;
 	document.getElementById("subtitleCol").style.color = textCol;
