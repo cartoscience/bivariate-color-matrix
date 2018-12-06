@@ -134,6 +134,8 @@ ctx15.fillText(L1H2,30,33);
 hueb.on( 'change', function (color) {
 	var textCol;
   midCol = chroma.scale([color,L1])(0.5);
+  mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
+  mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
 
   const canvasChange = (canvas, context, color) => {
     context.clearRect(0,0,canvas.width,canvas.height);
@@ -149,44 +151,10 @@ hueb.on( 'change', function (color) {
   }
 
   canvasChange(c, ctx, color);
-  canvasChange(c2, ctx2, midCol)
-
-  // ctx3 does not change
-
-	ctx7.clearRect(0,0,c7.width,c7.height);
-	var lum = chroma(midCol).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx7.fillStyle = textCol;
-	c7.style.backgroundColor = midCol;
-	ctx7.fillText(midCol.toString().toUpperCase(),30,33);
-
-	ctx8.clearRect(0,0,c8.width,c8.height);
-	mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
-	var lum = chroma(mix8).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx8.fillStyle = textCol;
-	c8.style.backgroundColor = mix8;
-	ctx8.fillText(mix8.toString().toUpperCase(),30,33);
-
-	ctx9.clearRect(0,0,c9.width,c9.height);
-	mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
-	var lum = chroma(mix9).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx9.fillStyle = textCol;
-	c9.style.backgroundColor = mix9;
-	ctx9.fillText(mix9.toString().toUpperCase(),30,33);
+  canvasChange(c2, ctx2, midCol);
+  canvasChange(c7, ctx7, midCol);
+  canvasChange(c8, ctx8, mix8);
+  canvasChange(c9, ctx9, mix9);
 
 	ctx10.clearRect(0,0,c10.width,c10.height);
 	mix10 = chroma.mix(midCol,L2);
