@@ -154,7 +154,7 @@ hueb.on( 'change', function (color) {
   	document.getElementById("titleCol").style.color = textCol;
   	document.getElementById("subtitleCol").style.color = textCol;
   	document.getElementById("deltaColMinVal").style.color = deCol;
-  	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+  	//document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
 
 // On change event function for input 2
@@ -231,5 +231,5 @@ hueb2.on( 'change', function (color) {
 	document.getElementById("titleCol").style.color = textCol;
 	document.getElementById("subtitleCol").style.color = textCol;
 	document.getElementById("deltaColMinVal").style.color = deCol;
-	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+	//document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
