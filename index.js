@@ -303,22 +303,22 @@ hueb2.on( 'change', function (color) {
   ]
 
   let deMin = Math.min(...deltaE)
-  	if (deMin < 8) {
-  		deCol = "#D52A2A";
-  	} else {
-  		deCol = "#00AA00";
-  	}
+	if (deMin < 8) {
+		deCol = "#D52A2A";
+	} else {
+		deCol = "#00AA00";
+	}
 
-    let lum = chroma(mix11).luminance();
-    if (lum < 0.6) {
-    	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
+  let lum = chroma(mix11).luminance();
+  if (lum < 0.6) {
+  	textCol = "#E8E8E8";
+	} else {
+		textCol = "#202020";
+	}
 
-    document.getElementById("banner").style.backgroundColor = mix11;
-  	document.getElementById("titleCol").style.color = textCol;
-  	document.getElementById("subtitleCol").style.color = textCol;
-  	document.getElementById("deltaColMinVal").style.color = deCol;
-  	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+  document.getElementById("banner").style.backgroundColor = mix11;
+	document.getElementById("titleCol").style.color = textCol;
+	document.getElementById("subtitleCol").style.color = textCol;
+	document.getElementById("deltaColMinVal").style.color = deCol;
+	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
