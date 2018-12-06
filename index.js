@@ -1,25 +1,25 @@
-var hueb = new Huebee( '.color-input', {
+const hueb = new Huebee( '.color-input', {
   saturations: 3,
   notation: "hex",
   hues: 9,
   staticOpen: true
 });
 
-var hueb2 = new Huebee( '.color-input2', {
+const hueb2 = new Huebee( '.color-input2', {
   saturations: 3,
   notation: "hex",
   hues: 9,
   staticOpen: true
 });
+
+const lumCheck = (lum, standard) => {
+  return lum < standard ? "#E8E8E8" : "#202020";
+}
 
 const canvasChange = (canvas, context, color) => {
   context.clearRect(0,0,canvas.width,canvas.height);
-  let lum = chroma(color).luminance();
-  if (lum < 0.179) {
-    textCol = "#E8E8E8";
-  } else {
-    textCol = "#202020";
-  }
+  textCol = lumCheck(chroma(color).luminance(), 0.179);
+
   context.fillStyle = textCol;
   canvas.style.backgroundColor = color;
   context.fillText(color.toString().toUpperCase(),30,33);
@@ -213,12 +213,7 @@ hueb.on( 'change', function (color) {
   		deCol = "#00AA00";
   	}
 
-    let lum = chroma(mix11).luminance();
-    if (lum < 0.6) {
-    	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
+    textCol = lumCheck(chroma(mix11).luminance(), 0.6);
 
     document.getElementById("banner").style.backgroundColor = mix11;
   	document.getElementById("titleCol").style.color = textCol;
@@ -296,13 +291,8 @@ hueb2.on( 'change', function (color) {
 		deCol = "#00AA00";
 	}
 
-  let lum = chroma(mix11).luminance();
-  if (lum < 0.6) {
-  	textCol = "#E8E8E8";
-	} else {
-		textCol = "#202020";
-	}
-
+  textCol = lumCheck(chroma(mix11).luminance(), 0.6);
+  
   document.getElementById("banner").style.backgroundColor = mix11;
 	document.getElementById("titleCol").style.color = textCol;
 	document.getElementById("subtitleCol").style.color = textCol;
