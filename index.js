@@ -166,13 +166,6 @@ hueb.on( 'change', function (color) {
   canvasChange(c14, ctx14, mix14);
   canvasChange(c15, ctx15, mix15);
 
-	var lum = chroma(mix11).luminance();
-  if (lum < 0.6) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-
   //creates an array populated with all deltaE values from Bivariate Pallete
   const deltaE = [
     chroma.deltaE(midCol,mix8),
@@ -221,9 +214,17 @@ hueb.on( 'change', function (color) {
   		deCol = "#00AA00";
   	}
 
-    document.getElementById("banner").style.backgroundColor=mix11;
-  	document.getElementById("titleCol").style.color=textCol;
-  	document.getElementById("subtitleCol").style.color=textCol;
+    let lum = chroma(mix11).luminance();
+
+    if (lum < 0.6) {
+    	textCol = "#E8E8E8";
+    	} else {
+    		textCol = "#202020";
+    	}
+
+    document.getElementById("banner").style.backgroundColor = mix11;
+  	document.getElementById("titleCol").style.color = textCol;
+  	document.getElementById("subtitleCol").style.color = textCol;
   	document.getElementById("deltaColMinVal").style.color = deCol;
   	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
@@ -264,60 +265,64 @@ hueb2.on( 'change', function (color2) {
   canvasChange(c14, ctx14, mix14);
   canvasChange(c15, ctx15, midCol2);
 
-	document.getElementById("banner").style.backgroundColor=mix11;
-	var lum = chroma(mix11).luminance();
-  if (lum < 0.6) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-	document.getElementById("titleCol").style.color=textCol;
-	document.getElementById("subtitleCol").style.color=textCol;
+  const deltaE = [
+  	chroma.deltaE(mix7,mix8),
+  	chroma.deltaE(mix7,mix9),
+  	chroma.deltaE(mix7,mix10),
+  	chroma.deltaE(mix7,mix11),
+  	chroma.deltaE(mix7,mix12),
+  	chroma.deltaE(mix7,L1),
+  	chroma.deltaE(mix7,mix14),
+  	chroma.deltaE(mix7,midCol2),
+  	chroma.deltaE(mix8,mix9),
+  	chroma.deltaE(mix8,mix10),
+  	chroma.deltaE(mix8,mix11),
+  	chroma.deltaE(mix8,mix12),
+  	chroma.deltaE(mix8,L1),
+  	chroma.deltaE(mix8,mix14),
+  	chroma.deltaE(mix8,midCol2),
+  	chroma.deltaE(mix9,mix10),
+  	chroma.deltaE(mix9,mix11),
+  	chroma.deltaE(mix9,mix12),
+  	chroma.deltaE(mix9,L1),
+  	chroma.deltaE(mix9,mix14),
+  	chroma.deltaE(mix9,midCol2),
+  	chroma.deltaE(mix10,mix11),
+  	chroma.deltaE(mix10,mix12),
+  	chroma.deltaE(mix10,L1),
+  	chroma.deltaE(mix10,mix14),
+  	chroma.deltaE(mix10,midCol2),
+  	chroma.deltaE(mix11,mix12),
+  	chroma.deltaE(mix11,L1),
+  	chroma.deltaE(mix11,mix14),
+  	chroma.deltaE(mix11,midCol2),
+  	chroma.deltaE(mix12,L1),
+  	chroma.deltaE(mix12,mix14),
+  	chroma.deltaE(mix12,midCol2),
+  	chroma.deltaE(L1,mix14),
+  	chroma.deltaE(L1,midCol2),
+  	chroma.deltaE(mix14,midCol2)
+  ]
 
-	var de1 = chroma.deltaE(mix7,mix8);
-	var de2 = chroma.deltaE(mix7,mix9);
-	var de3 = chroma.deltaE(mix7,mix10);
-	var de4 = chroma.deltaE(mix7,mix11);
-	var de5 = chroma.deltaE(mix7,mix12);
-	var de6 = chroma.deltaE(mix7,L1);
-	var de7 = chroma.deltaE(mix7,mix14);
-	var de8 = chroma.deltaE(mix7,midCol2);
-	var de9 = chroma.deltaE(mix8,mix9);
-	var de10 = chroma.deltaE(mix8,mix10);
-	var de11 = chroma.deltaE(mix8,mix11);
-	var de12 = chroma.deltaE(mix8,mix12);
-	var de13 = chroma.deltaE(mix8,L1);
-	var de14 = chroma.deltaE(mix8,mix14);
-	var de15 = chroma.deltaE(mix8,midCol2);
-	var de16 = chroma.deltaE(mix9,mix10);
-	var de17 = chroma.deltaE(mix9,mix11);
-	var de18 = chroma.deltaE(mix9,mix12);
-	var de19 = chroma.deltaE(mix9,L1);
-	var de20 = chroma.deltaE(mix9,mix14);
-	var de21 = chroma.deltaE(mix9,midCol2);
-	var de22 = chroma.deltaE(mix10,mix11);
-	var de23 = chroma.deltaE(mix10,mix12);
-	var de24 = chroma.deltaE(mix10,L1);
-	var de25 = chroma.deltaE(mix10,mix14);
-	var de26 = chroma.deltaE(mix10,midCol2);
-	var de27 = chroma.deltaE(mix11,mix12);
-	var de28 = chroma.deltaE(mix11,L1);
-	var de29 = chroma.deltaE(mix11,mix14);
-	var de30 = chroma.deltaE(mix11,midCol2);
-	var de31 = chroma.deltaE(mix12,L1);
-	var de32 = chroma.deltaE(mix12,mix14);
-	var de33 = chroma.deltaE(mix12,midCol2);
-	var de34 = chroma.deltaE(L1,mix14);
-	var de35 = chroma.deltaE(L1,midCol2);
-	var de36 = chroma.deltaE(mix14,midCol2);
+  let deMin = Math.min(...deltaE)
 
-	var deMin = Math.min(de1,de2,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,de13,de14,de15,de16,de17,de18,de19,de20,de21,de22,de23,de24,de25,de26,de27,de28,de29,de30,de31,de32,de33,de34,de35,de36);
   	if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
   		deCol = "#00AA00";
   	}
 
+    let lum = chroma(mix11).luminance();
+
+    if (lum < 0.6) {
+    	textCol = "#E8E8E8";
+    	} else {
+    		textCol = "#202020";
+    	}
+
+    document.getElementById("banner").style.backgroundColor = mix11;
+  	document.getElementById("titleCol").style.color = textCol;
+  	document.getElementById("subtitleCol").style.color = textCol;
   	document.getElementById("deltaColMinVal").style.color = deCol;
   	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
