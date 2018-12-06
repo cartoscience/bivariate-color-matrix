@@ -12,6 +12,19 @@ var hueb2 = new Huebee( '.color-input2', {
   staticOpen: true
 });
 
+const canvasChange = (canvas, context, color) => {
+  context.clearRect(0,0,canvas.width,canvas.height);
+  let lum = chroma(color).luminance();
+  if (lum < 0.179) {
+    textCol = "#E8E8E8";
+  } else {
+    textCol = "#202020";
+  }
+  context.fillStyle = textCol;
+  canvas.style.backgroundColor = color;
+  context.fillText(color.toString().toUpperCase(),30,33);
+}
+
 // Default initialization colors
 // Variable 1
 var L1 = "#E8E8E8";
@@ -142,19 +155,6 @@ hueb.on( 'change', function (color) {
   let mix14 = chroma.mix(L1,document.getElementById("myCanvas5").style.backgroundColor);
   let mix15 = chroma(document.getElementById("myCanvas5").style.backgroundColor);
 
-  const canvasChange = (canvas, context, color) => {
-    context.clearRect(0,0,canvas.width,canvas.height);
-  	let lum = chroma(color).luminance();
-    if (lum < 0.179) {
-    	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-    context.fillStyle = textCol;
-  	canvas.style.backgroundColor = color;
-    context.fillText(color.toString().toUpperCase(),30,33);
-  }
-
   canvasChange(c, ctx, color);
   canvasChange(c2, ctx2, midCol);
   canvasChange(c7, ctx7, midCol);
@@ -238,19 +238,6 @@ hueb2.on( 'change', function (color) {
   let mix11 = chroma.mix(midCol,document.getElementById("myCanvas2").style.backgroundColor);
   let mix12 = chroma.mix(color,document.getElementById("myCanvas2").style.backgroundColor);
   let mix14 = chroma.mix(L1,midCol);
-
-  const canvasChange = (canvas, context, color) => {
-    context.clearRect(0,0,canvas.width,canvas.height);
-  	let lum = chroma(color).luminance();
-    if (lum < 0.179) {
-    	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-    context.fillStyle = textCol;
-  	canvas.style.backgroundColor = color;
-    context.fillText(color.toString().toUpperCase(),30,33);
-  }
 
   canvasChange(c4, ctx4, color);
   canvasChange(c5, ctx5, midCol);
