@@ -4,15 +4,6 @@ body {
 :root {
 	--font-variable: "Comfortaa";
 }
-p.small {
-	line-height: 1.3;
-}
-p {
-	color: #E8E8E8;
-	font-size: 14px;
-	font-family: var(--font-variable);
-	line-height: 0;
-}
 a:link {
 	color: #B474B4;
 }
@@ -22,7 +13,16 @@ a:visited {
 a:hover {
 	color: #E8E8E8;
 }
-p.title {
+p {
+	color: #E8E8E8;
+	font-size: 14px;
+	font-family: var(--font-variable);
+	line-height: 0;
+}
+.small {
+	line-height: 1.3;
+}
+.title {
 	color: #E8E8E8;
 	text-align: center;
 	font-size: 22px;
@@ -31,7 +31,7 @@ p.title {
 	padding-top: 11px;
 	font-weight: 900;
 }
-p.subtitle {
+.subtitle {
 	text-align: center;
 	font-size: 13px;
 	font-family: var(--font-variable);
@@ -46,8 +46,12 @@ p.subtitle {
 	font-family: var(--font-variable);
 	line-height: 1;
 	color: #E8E8E8;
+	clear:left;
+	margin: 10px;
+	padding-top: 5px;
+	line-height: 0.5;
 }
-p.delta {
+.delta {
 	text-align: center;
 	font-size: 13px;
 	font-family: var(--font-variable);
@@ -55,25 +59,13 @@ p.delta {
 	font-weight: 300;
 	color: #E8E8E8;
 }
-p.deltaMin {
+.deltaMin {
 	text-align: center;
 	font-size: 22px;
 	font-family: var(--font-variable);
 	line-height: 0.5;
 	font-weight: 900;
 	color: #00AA00;
-}
-#footer {
-	clear:left;
-	margin: 10px;
-	padding-top: 5px;
-	line-height: 0.5;
-}
-.footer-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
 }
 div#banner {
   position: absolute;
@@ -101,8 +93,4 @@ div#main {
   text-align: center;
   padding-left: 10px;
   margin: 10px;
-}
-
-div#d3 {
-	display:inline-block;
 }
