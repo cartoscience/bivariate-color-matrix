@@ -167,7 +167,6 @@ hueb.on( 'change', function (color) {
   canvasChange(c14, ctx14, mix14);
   canvasChange(c15, ctx15, mix15);
 
-
 	var lum = chroma(mix11).luminance();
   if (lum < 0.6) {
   	textCol = "#E8E8E8";
@@ -175,9 +174,6 @@ hueb.on( 'change', function (color) {
   		textCol = "#202020";
   	}
 
-  document.getElementById("banner").style.backgroundColor=mix11;
-	document.getElementById("titleCol").style.color=textCol;
-	document.getElementById("subtitleCol").style.color=textCol;
   //creates an array populated with all deltaE values from Bivariate Pallete
   const deltaE = [
     chroma.deltaE(midCol,mix8),
@@ -224,6 +220,9 @@ hueb.on( 'change', function (color) {
   		deCol = "#00AA00";
   	}
 
+    document.getElementById("banner").style.backgroundColor=mix11;
+  	document.getElementById("titleCol").style.color=textCol;
+  	document.getElementById("subtitleCol").style.color=textCol;
   	document.getElementById("deltaColMinVal").style.color = deCol;
   	document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 });
