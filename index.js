@@ -147,9 +147,9 @@ hueb.on( 'change', function (color) {
   	let lum = chroma(color).luminance();
     if (lum < 0.179) {
     	textCol = "#E8E8E8";
-    	} else {
-    		textCol = "#202020";
-    	}
+  	} else {
+  		textCol = "#202020";
+  	}
     context.fillStyle = textCol;
   	canvas.style.backgroundColor = color;
     context.fillText(color.toString().toUpperCase(),30,33);
@@ -207,7 +207,6 @@ hueb.on( 'change', function (color) {
   ]
 
     let deMin = Math.min(...deltaE)
-
     if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
@@ -215,12 +214,11 @@ hueb.on( 'change', function (color) {
   	}
 
     let lum = chroma(mix11).luminance();
-
     if (lum < 0.6) {
     	textCol = "#E8E8E8";
-    	} else {
-    		textCol = "#202020";
-    	}
+  	} else {
+  		textCol = "#202020";
+  	}
 
     document.getElementById("banner").style.backgroundColor = mix11;
   	document.getElementById("titleCol").style.color = textCol;
@@ -230,32 +228,32 @@ hueb.on( 'change', function (color) {
 });
 
 // On change event function for input 2
-hueb2.on( 'change', function (color2) {
-	let textCol2;
-  let midCol2 = chroma.scale([color2,L1])(0.5);
+hueb2.on( 'change', function (color) {
+	let textCol;
+  let midCol = chroma.scale([color,L1])(0.5);
   let mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
-  let mix8 = chroma.mix(midCol2,document.getElementById("myCanvas").style.backgroundColor);
-  let mix9 = chroma.mix(color2,document.getElementById("myCanvas").style.backgroundColor);
+  let mix8 = chroma.mix(midCol,document.getElementById("myCanvas").style.backgroundColor);
+  let mix9 = chroma.mix(color,document.getElementById("myCanvas").style.backgroundColor);
   let mix10 = chroma.mix(document.getElementById("myCanvas2").style.backgroundColor,L2);
-  let mix11 = chroma.mix(midCol2,document.getElementById("myCanvas2").style.backgroundColor);
-  let mix12 = chroma.mix(color2,document.getElementById("myCanvas2").style.backgroundColor);
-  let mix14 = chroma.mix(L1,midCol2);
+  let mix11 = chroma.mix(midCol,document.getElementById("myCanvas2").style.backgroundColor);
+  let mix12 = chroma.mix(color,document.getElementById("myCanvas2").style.backgroundColor);
+  let mix14 = chroma.mix(L1,midCol);
 
   const canvasChange = (canvas, context, color) => {
     context.clearRect(0,0,canvas.width,canvas.height);
-  	var lum = chroma(color).luminance();
+  	let lum = chroma(color).luminance();
     if (lum < 0.179) {
-    	textCol2 = "#E8E8E8";
-    	} else {
-    		textCol2 = "#202020";
-    	}
-    context.fillStyle = textCol2;
+    	textCol = "#E8E8E8";
+  	} else {
+  		textCol = "#202020";
+  	}
+    context.fillStyle = textCol;
   	canvas.style.backgroundColor = color;
     context.fillText(color.toString().toUpperCase(),30,33);
   }
 
-  canvasChange(c4, ctx4, color2);
-  canvasChange(c5, ctx5, midCol2);
+  canvasChange(c4, ctx4, color);
+  canvasChange(c5, ctx5, midCol);
   canvasChange(c7, ctx7, mix7);
   canvasChange(c8, ctx8, mix8);
   canvasChange(c9, ctx9, mix9);
@@ -263,7 +261,7 @@ hueb2.on( 'change', function (color2) {
   canvasChange(c11, ctx11, mix11);
   canvasChange(c12, ctx12, mix12);
   canvasChange(c14, ctx14, mix14);
-  canvasChange(c15, ctx15, midCol2);
+  canvasChange(c15, ctx15, midCol);
 
   const deltaE = [
   	chroma.deltaE(mix7,mix8),
@@ -273,39 +271,38 @@ hueb2.on( 'change', function (color2) {
   	chroma.deltaE(mix7,mix12),
   	chroma.deltaE(mix7,L1),
   	chroma.deltaE(mix7,mix14),
-  	chroma.deltaE(mix7,midCol2),
+  	chroma.deltaE(mix7,midCol),
   	chroma.deltaE(mix8,mix9),
   	chroma.deltaE(mix8,mix10),
   	chroma.deltaE(mix8,mix11),
   	chroma.deltaE(mix8,mix12),
   	chroma.deltaE(mix8,L1),
   	chroma.deltaE(mix8,mix14),
-  	chroma.deltaE(mix8,midCol2),
+  	chroma.deltaE(mix8,midCol),
   	chroma.deltaE(mix9,mix10),
   	chroma.deltaE(mix9,mix11),
   	chroma.deltaE(mix9,mix12),
   	chroma.deltaE(mix9,L1),
   	chroma.deltaE(mix9,mix14),
-  	chroma.deltaE(mix9,midCol2),
+  	chroma.deltaE(mix9,midCol),
   	chroma.deltaE(mix10,mix11),
   	chroma.deltaE(mix10,mix12),
   	chroma.deltaE(mix10,L1),
   	chroma.deltaE(mix10,mix14),
-  	chroma.deltaE(mix10,midCol2),
+  	chroma.deltaE(mix10,midCol),
   	chroma.deltaE(mix11,mix12),
   	chroma.deltaE(mix11,L1),
   	chroma.deltaE(mix11,mix14),
-  	chroma.deltaE(mix11,midCol2),
+  	chroma.deltaE(mix11,midCol),
   	chroma.deltaE(mix12,L1),
   	chroma.deltaE(mix12,mix14),
-  	chroma.deltaE(mix12,midCol2),
+  	chroma.deltaE(mix12,midCol),
   	chroma.deltaE(L1,mix14),
-  	chroma.deltaE(L1,midCol2),
-  	chroma.deltaE(mix14,midCol2)
+  	chroma.deltaE(L1,midCol),
+  	chroma.deltaE(mix14,midCol)
   ]
 
   let deMin = Math.min(...deltaE)
-
   	if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
@@ -313,12 +310,11 @@ hueb2.on( 'change', function (color2) {
   	}
 
     let lum = chroma(mix11).luminance();
-
     if (lum < 0.6) {
     	textCol = "#E8E8E8";
-    	} else {
-    		textCol = "#202020";
-    	}
+  	} else {
+  		textCol = "#202020";
+  	}
 
     document.getElementById("banner").style.backgroundColor = mix11;
   	document.getElementById("titleCol").style.color = textCol;
