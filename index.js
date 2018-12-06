@@ -44,6 +44,7 @@ const hueb2 = new Huebee( '.color-input2', {
   staticOpen: true
 });
 
+const lightColor = "#E8E8E8";
 const lightFont = "#E8E8E8";
 const darkFont = "#202020";
 
@@ -62,52 +63,32 @@ const canvasChange = (canvas, context, color) => {
 }
 
 let textCol;
-
-// Default initialization colors
-// Variable 1
-var L1 = "#E8E8E8";
-var M1 = "#F47474";
-var H1 = "#FF0000";
-// Variable 2
-var L2 = "#E8E8E8";
-var M2 = "#7474F4";
-var H2 = "#0000FF";
-// Grid
-var H1L2 = "#F47474";
-var H1M2 = "#BA3A7A";
-var H1H2 = "#800080";
-var M1L2 = "#EEAEAE";
-var M1M2 = "#B474B4";
-var M1H2 = "#7A3ABA";
-var L1L2 = "#E8E8E8";
-var L1M2 = "#AEAEEE";
-var L1H2 = "#7474F4";
-
-canvasChange(c, ctx, H1);
-canvasChange(c2, ctx2, M1);
-canvasChange(c3, ctx3, L1);
-canvasChange(c4, ctx4, H2);
-canvasChange(c5, ctx5, M2);
-canvasChange(c6, ctx6, L2);
-canvasChange(c7, ctx7, H1L2);
-canvasChange(c8, ctx8, H1M2);
-canvasChange(c9, ctx9, H1H2);
-canvasChange(c10, ctx10, M1L2);
-canvasChange(c11, ctx11, M1M2);
-canvasChange(c12, ctx12, M1H2);
-canvasChange(c13, ctx13, L1L2);
-canvasChange(c14, ctx14, L1M2);
-canvasChange(c15, ctx15, L1H2);
+//initial canvas color build
+canvasChange(c, ctx, "#FF0000");
+canvasChange(c2, ctx2, "#F47474");
+canvasChange(c3, ctx3, lightColor);
+canvasChange(c4, ctx4, "#0000FF");
+canvasChange(c5, ctx5, "#7474F4");
+canvasChange(c6, ctx6, lightColor);
+canvasChange(c7, ctx7, "#F47474");
+canvasChange(c8, ctx8, "#BA3A7A");
+canvasChange(c9, ctx9, "#800080");
+canvasChange(c10, ctx10, "#EEAEAE");
+canvasChange(c11, ctx11, "#B474B4");
+canvasChange(c12, ctx12, "#7A3ABA");
+canvasChange(c13, ctx13, lightColor);
+canvasChange(c14, ctx14, "#AEAEEE");
+canvasChange(c15, ctx15, "#7474F4");
 
 // On change event function for input 1
 hueb.on( 'change', function (color) {
-  let midCol = chroma.scale([color,L1])(0.5);
-  let mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
-  let mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
-  let mix10 = chroma.mix(midCol,L2);
-  let mix11 = chroma.mix(midCol,document.getElementById("myCanvas5").style.backgroundColor);
-  let mix12 = chroma.mix(midCol,document.getElementById("myCanvas4").style.backgroundColor);
-  let mix14 = chroma.mix(L1,document.getElementById("myCanvas5").style.backgroundColor);
+  let midCol = chroma.scale([color, lightColor])(0.5);
+  let mix8 = chroma.mix(color, document.getElementById("myCanvas5").style.backgroundColor);
+  let mix9 = chroma.mix(color, document.getElementById("myCanvas4").style.backgroundColor);
+  let mix10 = chroma.mix(midCol, lightColor);
+  let mix11 = chroma.mix(midCol, document.getElementById("myCanvas5").style.backgroundColor);
+  let mix12 = chroma.mix(midCol, document.getElementById("myCanvas4").style.backgroundColor);
+  let mix14 = chroma.mix(lightColor, document.getElementById("myCanvas5").style.backgroundColor);
   let mix15 = chroma(document.getElementById("myCanvas5").style.backgroundColor);
 
   canvasChange(c, ctx, color);
@@ -123,42 +104,42 @@ hueb.on( 'change', function (color) {
 
   //creates an array populated with all deltaE values from Bivariate Pallete
   const deltaE = [
-    chroma.deltaE(midCol,mix8),
-  	chroma.deltaE(midCol,mix9),
-  	chroma.deltaE(midCol,mix10),
-  	chroma.deltaE(midCol,mix11),
-  	chroma.deltaE(midCol,mix12),
-  	chroma.deltaE(midCol,L1),
-  	chroma.deltaE(midCol,mix14),
-  	chroma.deltaE(midCol,mix15),
-  	chroma.deltaE(mix8,mix9),
-  	chroma.deltaE(mix8,mix10),
-  	chroma.deltaE(mix8,mix11),
-  	chroma.deltaE(mix8,mix12),
-  	chroma.deltaE(mix8,L1),
-  	chroma.deltaE(mix8,mix14),
-  	chroma.deltaE(mix8,mix15),
-  	chroma.deltaE(mix9,mix10),
-  	chroma.deltaE(mix9,mix11),
-  	chroma.deltaE(mix9,mix12),
-  	chroma.deltaE(mix9,L1),
-  	chroma.deltaE(mix9,mix14),
-  	chroma.deltaE(mix9,mix15),
-  	chroma.deltaE(mix10,mix11),
-  	chroma.deltaE(mix10,mix12),
-  	chroma.deltaE(mix10,L1),
-  	chroma.deltaE(mix10,mix14),
-  	chroma.deltaE(mix10,mix15),
-  	chroma.deltaE(mix11,mix12),
-  	chroma.deltaE(mix11,L1),
-  	chroma.deltaE(mix11,mix14),
-  	chroma.deltaE(mix11,mix15),
-  	chroma.deltaE(mix12,L1),
-  	chroma.deltaE(mix12,mix14),
-  	chroma.deltaE(mix12,mix15),
-  	chroma.deltaE(L1,mix14),
-  	chroma.deltaE(L1,mix15),
-  	chroma.deltaE(mix14,mix15)
+    chroma.deltaE(midCol, mix8),
+  	chroma.deltaE(midCol, mix9),
+  	chroma.deltaE(midCol, mix10),
+  	chroma.deltaE(midCol, mix11),
+  	chroma.deltaE(midCol, mix12),
+  	chroma.deltaE(midCol, lightColor),
+  	chroma.deltaE(midCol, mix14),
+  	chroma.deltaE(midCol, mix15),
+  	chroma.deltaE(mix8, mix9),
+  	chroma.deltaE(mix8, mix10),
+  	chroma.deltaE(mix8, mix11),
+  	chroma.deltaE(mix8, mix12),
+  	chroma.deltaE(mix8, lightColor),
+  	chroma.deltaE(mix8, mix14),
+  	chroma.deltaE(mix8, mix15),
+  	chroma.deltaE(mix9, mix10),
+  	chroma.deltaE(mix9, mix11),
+  	chroma.deltaE(mix9, mix12),
+  	chroma.deltaE(mix9, lightColor),
+  	chroma.deltaE(mix9, mix14),
+  	chroma.deltaE(mix9, mix15),
+  	chroma.deltaE(mix10, mix11),
+  	chroma.deltaE(mix10, mix12),
+  	chroma.deltaE(mix10, lightColor),
+  	chroma.deltaE(mix10, mix14),
+  	chroma.deltaE(mix10, mix15),
+  	chroma.deltaE(mix11, mix12),
+  	chroma.deltaE(mix11, lightColor),
+  	chroma.deltaE(mix11, mix14),
+  	chroma.deltaE(mix11, mix15),
+  	chroma.deltaE(mix12, lightColor),
+  	chroma.deltaE(mix12, mix14),
+  	chroma.deltaE(mix12, mix15),
+  	chroma.deltaE(lightColor, mix14),
+  	chroma.deltaE(lightColor, mix15),
+  	chroma.deltaE(mix14, mix15)
   ]
 
     let deMin = Math.min(...deltaE)
@@ -179,14 +160,14 @@ hueb.on( 'change', function (color) {
 
 // On change event function for input 2
 hueb2.on( 'change', function (color) {
-  let midCol = chroma.scale([color,L1])(0.5);
+  let midCol = chroma.scale([color, lightColor])(0.5);
   let mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
-  let mix8 = chroma.mix(midCol,document.getElementById("myCanvas").style.backgroundColor);
-  let mix9 = chroma.mix(color,document.getElementById("myCanvas").style.backgroundColor);
-  let mix10 = chroma.mix(document.getElementById("myCanvas2").style.backgroundColor,L2);
-  let mix11 = chroma.mix(midCol,document.getElementById("myCanvas2").style.backgroundColor);
-  let mix12 = chroma.mix(color,document.getElementById("myCanvas2").style.backgroundColor);
-  let mix14 = chroma.mix(L1,midCol);
+  let mix8 = chroma.mix(midCol, document.getElementById("myCanvas").style.backgroundColor);
+  let mix9 = chroma.mix(color, document.getElementById("myCanvas").style.backgroundColor);
+  let mix10 = chroma.mix(document.getElementById("myCanvas2").style.backgroundColor, lightColor);
+  let mix11 = chroma.mix(midCol, document.getElementById("myCanvas2").style.backgroundColor);
+  let mix12 = chroma.mix(color, document.getElementById("myCanvas2").style.backgroundColor);
+  let mix14 = chroma.mix(lightColor, midCol);
 
   canvasChange(c4, ctx4, color);
   canvasChange(c5, ctx5, midCol);
@@ -200,42 +181,42 @@ hueb2.on( 'change', function (color) {
   canvasChange(c15, ctx15, midCol);
 
   const deltaE = [
-  	chroma.deltaE(mix7,mix8),
-  	chroma.deltaE(mix7,mix9),
-  	chroma.deltaE(mix7,mix10),
-  	chroma.deltaE(mix7,mix11),
-  	chroma.deltaE(mix7,mix12),
-  	chroma.deltaE(mix7,L1),
-  	chroma.deltaE(mix7,mix14),
-  	chroma.deltaE(mix7,midCol),
-  	chroma.deltaE(mix8,mix9),
-  	chroma.deltaE(mix8,mix10),
-  	chroma.deltaE(mix8,mix11),
-  	chroma.deltaE(mix8,mix12),
-  	chroma.deltaE(mix8,L1),
-  	chroma.deltaE(mix8,mix14),
-  	chroma.deltaE(mix8,midCol),
-  	chroma.deltaE(mix9,mix10),
-  	chroma.deltaE(mix9,mix11),
-  	chroma.deltaE(mix9,mix12),
-  	chroma.deltaE(mix9,L1),
-  	chroma.deltaE(mix9,mix14),
-  	chroma.deltaE(mix9,midCol),
-  	chroma.deltaE(mix10,mix11),
-  	chroma.deltaE(mix10,mix12),
-  	chroma.deltaE(mix10,L1),
-  	chroma.deltaE(mix10,mix14),
-  	chroma.deltaE(mix10,midCol),
-  	chroma.deltaE(mix11,mix12),
-  	chroma.deltaE(mix11,L1),
-  	chroma.deltaE(mix11,mix14),
-  	chroma.deltaE(mix11,midCol),
-  	chroma.deltaE(mix12,L1),
-  	chroma.deltaE(mix12,mix14),
-  	chroma.deltaE(mix12,midCol),
-  	chroma.deltaE(L1,mix14),
-  	chroma.deltaE(L1,midCol),
-  	chroma.deltaE(mix14,midCol)
+  	chroma.deltaE(mix7, mix8),
+  	chroma.deltaE(mix7, mix9),
+  	chroma.deltaE(mix7, mix10),
+  	chroma.deltaE(mix7, mix11),
+  	chroma.deltaE(mix7, mix12),
+  	chroma.deltaE(mix7, lightColor),
+  	chroma.deltaE(mix7, mix14),
+  	chroma.deltaE(mix7, midCol),
+  	chroma.deltaE(mix8, mix9),
+  	chroma.deltaE(mix8, mix10),
+  	chroma.deltaE(mix8, mix11),
+  	chroma.deltaE(mix8, mix12),
+  	chroma.deltaE(mix8, lightColor),
+  	chroma.deltaE(mix8, mix14),
+  	chroma.deltaE(mix8, midCol),
+  	chroma.deltaE(mix9, mix10),
+  	chroma.deltaE(mix9, mix11),
+  	chroma.deltaE(mix9, mix12),
+  	chroma.deltaE(mix9, lightColor),
+  	chroma.deltaE(mix9, mix14),
+  	chroma.deltaE(mix9, midCol),
+  	chroma.deltaE(mix10, mix11),
+  	chroma.deltaE(mix10, mix12),
+  	chroma.deltaE(mix10, lightColor),
+  	chroma.deltaE(mix10, mix14),
+  	chroma.deltaE(mix10, midCol),
+  	chroma.deltaE(mix11, mix12),
+  	chroma.deltaE(mix11, lightColor),
+  	chroma.deltaE(mix11, mix14),
+  	chroma.deltaE(mix11, midCol),
+  	chroma.deltaE(mix12, lightColor),
+  	chroma.deltaE(mix12, mix14),
+  	chroma.deltaE(mix12, midCol),
+  	chroma.deltaE(lightColor, mix14),
+  	chroma.deltaE(lightColor, midCol),
+  	chroma.deltaE(mix14, midCol)
   ]
 
   let deMin = Math.min(...deltaE)
