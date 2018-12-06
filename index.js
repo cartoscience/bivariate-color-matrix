@@ -102,7 +102,6 @@ hueb.on( 'change', function (color) {
   canvasChange(c14, ctx14, mix14);
   canvasChange(c15, ctx15, mix15);
 
-  //creates an array populated with all deltaE values from Bivariate Pallete
   const deltaE = [
     chroma.deltaE(midCol, mix8),
   	chroma.deltaE(midCol, mix9),
