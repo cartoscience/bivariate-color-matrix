@@ -132,20 +132,19 @@ ctx15.fillText(L1H2,30,33);
 
 // On change event function for input 1
 hueb.on( 'change', function (color) {
-	var textCol;
-  midCol = chroma.scale([color,L1])(0.5);
-  mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
-  mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
-  mix10 = chroma.mix(midCol,L2);
-  mix11 = chroma.mix(midCol,document.getElementById("myCanvas5").style.backgroundColor);
-  mix12 = chroma.mix(midCol,document.getElementById("myCanvas4").style.backgroundColor);
-  mix14 = chroma.mix(L1,document.getElementById("myCanvas5").style.backgroundColor);
-  mix15 = chroma(document.getElementById("myCanvas5").style.backgroundColor);
-
+	let textCol;
+  let midCol = chroma.scale([color,L1])(0.5);
+  let mix8 = chroma.mix(color,document.getElementById("myCanvas5").style.backgroundColor);
+  let mix9 = chroma.mix(color,document.getElementById("myCanvas4").style.backgroundColor);
+  let mix10 = chroma.mix(midCol,L2);
+  let mix11 = chroma.mix(midCol,document.getElementById("myCanvas5").style.backgroundColor);
+  let mix12 = chroma.mix(midCol,document.getElementById("myCanvas4").style.backgroundColor);
+  let mix14 = chroma.mix(L1,document.getElementById("myCanvas5").style.backgroundColor);
+  let mix15 = chroma(document.getElementById("myCanvas5").style.backgroundColor);
 
   const canvasChange = (canvas, context, color) => {
     context.clearRect(0,0,canvas.width,canvas.height);
-  	var lum = chroma(color).luminance();
+  	let lum = chroma(color).luminance();
     if (lum < 0.179) {
     	textCol = "#E8E8E8";
     	} else {
@@ -213,7 +212,9 @@ hueb.on( 'change', function (color) {
   	chroma.deltaE(L1,mix15),
   	chroma.deltaE(mix14,mix15)
   ]
+
     let deMin = Math.min(...deltaE)
+
     if (deMin < 8) {
   		deCol = "#D52A2A";
   	} else {
@@ -229,128 +230,39 @@ hueb.on( 'change', function (color) {
 
 // On change event function for input 2
 hueb2.on( 'change', function (color2) {
-	var textCol2;
-	ctx4.clearRect(0,0,c4.width,c4.height);
-	var lum2 = chroma(color2).luminance();
-	if (lum2 < 0.179) {
-		textCol2 = "#E8E8E8";
-	} else {
-		textCol2 = "#202020";
-	}
-	c4.style.backgroundColor = color2;
-	ctx4.fillStyle = textCol2
-	ctx4.fillText(color2,30,33);
+	let textCol2;
+  let midCol2 = chroma.scale([color2,L1])(0.5);
+  let mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
+  let mix8 = chroma.mix(midCol2,document.getElementById("myCanvas").style.backgroundColor);
+  let mix9 = chroma.mix(color2,document.getElementById("myCanvas").style.backgroundColor);
+  let mix10 = chroma.mix(document.getElementById("myCanvas2").style.backgroundColor,L2);
+  let mix11 = chroma.mix(midCol2,document.getElementById("myCanvas2").style.backgroundColor);
+  let mix12 = chroma.mix(color2,document.getElementById("myCanvas2").style.backgroundColor);
+  let mix14 = chroma.mix(L1,midCol2);
 
-	ctx5.clearRect(0,0,c2.width,c2.height);
-	midCol2 = chroma.scale([color2,L1])(0.5);
-	var lum = chroma(midCol2).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx5.fillStyle = textCol;
-	c5.style.backgroundColor = midCol2;
-	ctx5.fillText(midCol2.toString().toUpperCase(),30,33);
+  const canvasChange = (canvas, context, color) => {
+    context.clearRect(0,0,canvas.width,canvas.height);
+  	var lum = chroma(color).luminance();
+    if (lum < 0.179) {
+    	textCol2 = "#E8E8E8";
+    	} else {
+    		textCol2 = "#202020";
+    	}
+    context.fillStyle = textCol2;
+  	canvas.style.backgroundColor = color;
+    context.fillText(color.toString().toUpperCase(),30,33);
+  }
 
-  // ctx6 does not change
-
-	ctx7.clearRect(0,0,c7.width,c7.height);
-	mix7 = chroma(document.getElementById("myCanvas2").style.backgroundColor);
-	var lum = chroma(mix7).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx7.fillStyle = textCol;
-	c7.style.backgroundColor = mix7;
-	ctx7.fillText(mix7.toString().toUpperCase(),30,33);
-
-	ctx8.clearRect(0,0,c8.width,c8.height);
-	mix8 = chroma.mix(midCol2,document.getElementById("myCanvas").style.backgroundColor);
-	var lum = chroma(mix8).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx8.fillStyle = textCol;
-	c8.style.backgroundColor = mix8;
-	ctx8.fillText(mix8.toString().toUpperCase(),30,33);
-
-	ctx9.clearRect(0,0,c9.width,c9.height);
-	mix9 = chroma.mix(color2,document.getElementById("myCanvas").style.backgroundColor);
-	var lum = chroma(mix9).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx9.fillStyle = textCol;
-	c9.style.backgroundColor = mix9;
-	ctx9.fillText(mix9.toString().toUpperCase(),30,33);
-
-	ctx10.clearRect(0,0,c10.width,c10.height);
-	mix10 = chroma.mix(document.getElementById("myCanvas2").style.backgroundColor,L2);
-	var lum = chroma(mix10).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx10.fillStyle = textCol;
-	c10.style.backgroundColor = mix10;
-	ctx10.fillText(mix10.toString().toUpperCase(),30,33);
-
-	ctx11.clearRect(0,0,c11.width,c11.height);
-	mix11 = chroma.mix(midCol2,document.getElementById("myCanvas2").style.backgroundColor);
-	var lum = chroma(mix11).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx11.fillStyle = textCol;
-	c11.style.backgroundColor = mix11;
-	ctx11.fillText(mix11.toString().toUpperCase(),30,33);
-
-	ctx12.clearRect(0,0,c12.width,c12.height);
-	mix12 = chroma.mix(color2,document.getElementById("myCanvas2").style.backgroundColor);
-	var lum = chroma(mix12).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx12.fillStyle = textCol;
-	c12.style.backgroundColor = mix12;
-	ctx12.fillText(mix12.toString().toUpperCase(),30,33);
-
-  // ctx13 does not change
-
-	ctx14.clearRect(0,0,c14.width,c14.height);
-	mix14 = chroma.mix(L1,midCol2);
-	var lum = chroma(mix14).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx14.fillStyle = textCol;
-	c14.style.backgroundColor = mix14;
-	ctx14.fillText(mix14.toString().toUpperCase(),30,33);
-
-	ctx15.clearRect(0,0,c15.width,c15.height);
-	var lum = chroma(midCol2).luminance();
-  if (lum < 0.179) {
-  	textCol = "#E8E8E8";
-  	} else {
-  		textCol = "#202020";
-  	}
-  ctx15.fillStyle = textCol;
-	c15.style.backgroundColor = midCol2;
-	ctx15.fillText(midCol2.toString().toUpperCase(),30,33);
+  canvasChange(c4, ctx4, color2);
+  canvasChange(c5, ctx5, midCol2);
+  canvasChange(c7, ctx7, mix7);
+  canvasChange(c8, ctx8, mix8);
+  canvasChange(c9, ctx9, mix9);
+  canvasChange(c10, ctx10, mix10);
+  canvasChange(c11, ctx11, mix11);
+  canvasChange(c12, ctx12, mix12);
+  canvasChange(c14, ctx14, mix14);
+  canvasChange(c15, ctx15, midCol2);
 
 	document.getElementById("banner").style.backgroundColor=mix11;
 	var lum = chroma(mix11).luminance();
