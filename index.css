@@ -44,14 +44,11 @@ p {
 	text-align: center;
 	font-size: 11px;
 	font-family: var(--font-variable);
-	line-height: 1;
+	line-height: 1.2;
 	color: #E8E8E8;
-}
-#footer {
 	clear:left;
 	margin: 10px;
 	padding-top: 5px;
-	line-height: 0.5;
 }
 .delta {
 	text-align: center;
@@ -63,11 +60,18 @@ p {
 }
 .deltaMin {
 	text-align: center;
-	font-size: 22px;
+	font-size: 23px;
 	font-family: var(--font-variable);
-	line-height: 0.5;
+	line-height: 0;
 	font-weight: 900;
 	color: #00AA00;
+}
+.logo {
+    width: 130px;
+    padding-right: 20px;
+}
+div#d3 {
+	padding-top: 15px;
 }
 div#banner {
   position: absolute;
@@ -93,6 +97,12 @@ div#main {
 #main > div{
   float:left;
   text-align: center;
-  padding-left: 10px;
+  padding-left: 12px;
   margin: 10px;
 }
+div#map {
+  margin: auto;
+  background-color: #202020;
+  width: 675px;
+  height: 370px;
+} 
