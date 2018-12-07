@@ -80,6 +80,51 @@ canvasChange(c13, ctx13, lightColor);
 canvasChange(c14, ctx14, "#AEAEEE");
 canvasChange(c15, ctx15, "#7474F4");
 
+//Map initialization
+var map = L.map("map").setView([38.3, -96], 4);
+map.removeControl(map.zoomControl);
+map.scrollWheelZoom.disable();
+map.dragging.disable();
+document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
+
+var baseStyle = {
+  weight: 7,
+  color: lightColor,
+  opacity: 0.3,
+  fillColor: lightColor,
+  fillOpacity: 1
+};
+
+L.geoJson(us, {
+  style: baseStyle
+}).addTo(map);
+
+function getColor(d) {
+  return d === 7 ? '#F47474' :
+      d === 8 ? '#BA3A7A' :
+      d === 9 ? '#800080' :
+      d === 10 ? '#EEAEAE' :
+      d === 11 ? '#B474B4' :
+      d === 12  ? '#7A3ABA' :
+      d === 13  ? '#E8E8E8' :
+      d === 14  ? '#AEAEEE' :
+            '#7474F4';
+}
+
+function style(feature) {
+  return {
+    weight: 1,
+    color: lightColor,
+    opacity: 0.3,
+    fillColor: getColor(feature.properties.label),
+    fillOpacity: 1
+  };
+}
+
+geojson = L.geoJson(counties, {
+  style: style
+}).addTo(map);
+
 // On change event function for input 1
 hueb.on( 'change', function (color) {
   let midCol = chroma.scale([color, lightColor])(0.5);
@@ -103,58 +148,86 @@ hueb.on( 'change', function (color) {
   canvasChange(c15, ctx15, mix15);
 
   const deltaE = [
-    chroma.deltaE(midCol, mix8),
-  	chroma.deltaE(midCol, mix9),
-  	chroma.deltaE(midCol, mix10),
-  	chroma.deltaE(midCol, mix11),
-  	chroma.deltaE(midCol, mix12),
-  	chroma.deltaE(midCol, lightColor),
-  	chroma.deltaE(midCol, mix14),
-  	chroma.deltaE(midCol, mix15),
-  	chroma.deltaE(mix8, mix9),
-  	chroma.deltaE(mix8, mix10),
-  	chroma.deltaE(mix8, mix11),
-  	chroma.deltaE(mix8, mix12),
-  	chroma.deltaE(mix8, lightColor),
-  	chroma.deltaE(mix8, mix14),
-  	chroma.deltaE(mix8, mix15),
-  	chroma.deltaE(mix9, mix10),
-  	chroma.deltaE(mix9, mix11),
-  	chroma.deltaE(mix9, mix12),
-  	chroma.deltaE(mix9, lightColor),
-  	chroma.deltaE(mix9, mix14),
-  	chroma.deltaE(mix9, mix15),
-  	chroma.deltaE(mix10, mix11),
-  	chroma.deltaE(mix10, mix12),
-  	chroma.deltaE(mix10, lightColor),
-  	chroma.deltaE(mix10, mix14),
-  	chroma.deltaE(mix10, mix15),
-  	chroma.deltaE(mix11, mix12),
-  	chroma.deltaE(mix11, lightColor),
-  	chroma.deltaE(mix11, mix14),
-  	chroma.deltaE(mix11, mix15),
-  	chroma.deltaE(mix12, lightColor),
-  	chroma.deltaE(mix12, mix14),
-  	chroma.deltaE(mix12, mix15),
-  	chroma.deltaE(lightColor, mix14),
-  	chroma.deltaE(lightColor, mix15),
-  	chroma.deltaE(mix14, mix15)
+    chroma.deltaE(midCol, mix8),chroma.deltaE(mix8, midCol),
+    chroma.deltaE(midCol, mix9),chroma.deltaE(mix9, midCol),
+    chroma.deltaE(midCol, mix10),chroma.deltaE(mix10, midCol),
+    chroma.deltaE(midCol, mix11),chroma.deltaE(mix11, midCol),
+    chroma.deltaE(midCol, mix12),chroma.deltaE(mix12, midCol),
+    chroma.deltaE(midCol, lightColor),chroma.deltaE(lightColor, midCol),
+    chroma.deltaE(midCol, mix14),chroma.deltaE(mix14, midCol),
+    chroma.deltaE(midCol, mix15),chroma.deltaE(mix15, midCol),
+    chroma.deltaE(mix8, mix9),chroma.deltaE(mix9, mix8),
+    chroma.deltaE(mix8, mix10),chroma.deltaE(mix10, mix8),
+    chroma.deltaE(mix8, mix11),chroma.deltaE(mix11, mix8),
+    chroma.deltaE(mix8, mix12),chroma.deltaE(mix12, mix8),
+    chroma.deltaE(mix8, lightColor),chroma.deltaE(lightColor, mix8),
+    chroma.deltaE(mix8, mix14),chroma.deltaE(mix14, mix8),
+    chroma.deltaE(mix8, mix15),chroma.deltaE(mix15, mix8),
+    chroma.deltaE(mix9, mix10),chroma.deltaE(mix10, mix9),
+    chroma.deltaE(mix9, mix11),chroma.deltaE(mix11, mix9),
+    chroma.deltaE(mix9, mix12),chroma.deltaE(mix12, mix9),
+    chroma.deltaE(mix9, lightColor),chroma.deltaE(lightColor, mix9),
+    chroma.deltaE(mix9, mix14),chroma.deltaE(mix14, mix9),
+    chroma.deltaE(mix9, mix15),chroma.deltaE(mix15, mix9),
+    chroma.deltaE(mix10, mix11),chroma.deltaE(mix11, mix10),
+    chroma.deltaE(mix10, mix12),chroma.deltaE(mix12, mix10),
+    chroma.deltaE(mix10, lightColor),chroma.deltaE(lightColor, mix10),
+    chroma.deltaE(mix10, mix14),chroma.deltaE(mix14, mix10),
+    chroma.deltaE(mix10, mix15),chroma.deltaE(mix15, mix10),
+    chroma.deltaE(mix11, mix12),chroma.deltaE(mix12, mix11),
+    chroma.deltaE(mix11, lightColor),chroma.deltaE(lightColor, mix11),
+    chroma.deltaE(mix11, mix14),chroma.deltaE(mix14, mix11),
+    chroma.deltaE(mix11, mix15),chroma.deltaE(mix15, mix11),
+    chroma.deltaE(mix12, lightColor),chroma.deltaE(lightColor, mix12),
+    chroma.deltaE(mix12, mix14),chroma.deltaE(mix14, mix12),
+    chroma.deltaE(mix12, mix15),chroma.deltaE(mix15, mix12),
+    chroma.deltaE(lightColor, mix14),chroma.deltaE(mix14, lightColor),
+    chroma.deltaE(lightColor, mix15),chroma.deltaE(mix15, lightColor),
+    chroma.deltaE(mix14, mix15),chroma.deltaE(mix15, mix14)
   ]
 
-    let deMin = Math.min(...deltaE)
-    if (deMin < 8) {
-  		deCol = "#D52A2A";
-  	} else {
-  		deCol = "#00AA00";
-  	}
+  let deMin = Math.min(...deltaE)
+  if (deMin < 8) {
+    deCol = "#D52A2A";
+  } else {
+    deCol = "#00AA00";
+  }
 
-    textCol = lumCheck(chroma(mix11).luminance(), 0.6);
+  textCol = lumCheck(chroma(mix11).luminance(), 0.6);
 
-    document.getElementById("banner").style.backgroundColor = mix11;
-  	document.getElementById("titleCol").style.color = textCol;
-  	document.getElementById("subtitleCol").style.color = textCol;
-  	document.getElementById("deltaColMinVal").style.color = deCol;
-  	//document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+  document.getElementById("banner").style.backgroundColor = mix11;
+  document.getElementById("titleCol").style.color = textCol;
+  document.getElementById("subtitleCol").style.color = textCol;
+  document.getElementById("deltaColMinVal").style.color = deCol;
+  document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+
+  map.removeLayer(geojson);
+
+  function getColor(d) {
+    return d === 7 ? midCol :
+      d === 8 ? mix8 :
+      d === 9 ? mix9 :
+      d === 10 ? mix10 :
+      d === 11 ? mix11 :
+      d === 12  ? mix12 :
+      d === 13  ? lightColor :
+      d === 14  ? mix14 :
+          mix15;
+  }
+
+  function style(feature) {
+    return {
+      weight: 1,
+      color: lightColor,
+      opacity: 0.3,
+      fillColor: getColor(feature.properties.label),
+      fillOpacity: 1
+    };
+  }
+
+  geojson = L.geoJson(counties, {
+    style: style
+  }).addTo(map);
 });
 
 // On change event function for input 2
@@ -180,56 +253,85 @@ hueb2.on( 'change', function (color) {
   canvasChange(c15, ctx15, midCol);
 
   const deltaE = [
-  	chroma.deltaE(mix7, mix8),
-  	chroma.deltaE(mix7, mix9),
-  	chroma.deltaE(mix7, mix10),
-  	chroma.deltaE(mix7, mix11),
-  	chroma.deltaE(mix7, mix12),
-  	chroma.deltaE(mix7, lightColor),
-  	chroma.deltaE(mix7, mix14),
-  	chroma.deltaE(mix7, midCol),
-  	chroma.deltaE(mix8, mix9),
-  	chroma.deltaE(mix8, mix10),
-  	chroma.deltaE(mix8, mix11),
-  	chroma.deltaE(mix8, mix12),
-  	chroma.deltaE(mix8, lightColor),
-  	chroma.deltaE(mix8, mix14),
-  	chroma.deltaE(mix8, midCol),
-  	chroma.deltaE(mix9, mix10),
-  	chroma.deltaE(mix9, mix11),
-  	chroma.deltaE(mix9, mix12),
-  	chroma.deltaE(mix9, lightColor),
-  	chroma.deltaE(mix9, mix14),
-  	chroma.deltaE(mix9, midCol),
-  	chroma.deltaE(mix10, mix11),
-  	chroma.deltaE(mix10, mix12),
-  	chroma.deltaE(mix10, lightColor),
-  	chroma.deltaE(mix10, mix14),
-  	chroma.deltaE(mix10, midCol),
-  	chroma.deltaE(mix11, mix12),
-  	chroma.deltaE(mix11, lightColor),
-  	chroma.deltaE(mix11, mix14),
-  	chroma.deltaE(mix11, midCol),
-  	chroma.deltaE(mix12, lightColor),
-  	chroma.deltaE(mix12, mix14),
-  	chroma.deltaE(mix12, midCol),
-  	chroma.deltaE(lightColor, mix14),
-  	chroma.deltaE(lightColor, midCol),
-  	chroma.deltaE(mix14, midCol)
+    chroma.deltaE(mix7, mix8),chroma.deltaE(mix8, mix7),
+    chroma.deltaE(mix7, mix9),chroma.deltaE(mix9, mix7),
+    chroma.deltaE(mix7, mix10),chroma.deltaE(mix10, mix7),
+    chroma.deltaE(mix7, mix11),chroma.deltaE(mix11, mix7),
+    chroma.deltaE(mix7, mix12),chroma.deltaE(mix12, mix7),
+    chroma.deltaE(mix7, lightColor),chroma.deltaE(lightColor, mix7),
+    chroma.deltaE(mix7, mix14),chroma.deltaE(mix14, mix7),
+    chroma.deltaE(mix7, midCol),chroma.deltaE(midCol, mix7),
+    chroma.deltaE(mix8, mix9),chroma.deltaE(mix9, mix8),
+    chroma.deltaE(mix8, mix10),chroma.deltaE(mix10, mix8),
+    chroma.deltaE(mix8, mix11),chroma.deltaE(mix11, mix8),
+    chroma.deltaE(mix8, mix12),chroma.deltaE(mix12, mix8),
+    chroma.deltaE(mix8, lightColor),chroma.deltaE(lightColor, mix8),
+    chroma.deltaE(mix8, mix14),chroma.deltaE(mix14, mix8),
+    chroma.deltaE(mix8, midCol),chroma.deltaE(midCol, mix8),
+    chroma.deltaE(mix9, mix10),chroma.deltaE(mix10, mix9),
+    chroma.deltaE(mix9, mix11),chroma.deltaE(mix11, mix9),
+    chroma.deltaE(mix9, mix12),chroma.deltaE(mix12, mix9),
+    chroma.deltaE(mix9, lightColor),chroma.deltaE(lightColor, mix9),
+    chroma.deltaE(mix9, mix14),chroma.deltaE(mix14, mix9),
+    chroma.deltaE(mix9, midCol),chroma.deltaE(midCol, mix9),
+    chroma.deltaE(mix10, mix11),chroma.deltaE(mix11, mix10),
+    chroma.deltaE(mix10, mix12),chroma.deltaE(mix12, mix10),
+    chroma.deltaE(mix10, lightColor),chroma.deltaE(lightColor, mix10),
+    chroma.deltaE(mix10, mix14),chroma.deltaE(mix14, mix10),
+    chroma.deltaE(mix10, midCol),chroma.deltaE(midCol, mix10),
+    chroma.deltaE(mix11, mix12),chroma.deltaE(mix12, mix11),
+    chroma.deltaE(mix11, lightColor),chroma.deltaE(lightColor, mix11),
+    chroma.deltaE(mix11, mix14),chroma.deltaE(mix14, mix11),
+    chroma.deltaE(mix11, midCol),chroma.deltaE(midCol, mix11),
+    chroma.deltaE(mix12, lightColor),chroma.deltaE(lightColor, mix12),
+    chroma.deltaE(mix12, mix14),chroma.deltaE(mix14, mix12),
+    chroma.deltaE(mix12, midCol),chroma.deltaE(midCol, mix12),
+    chroma.deltaE(lightColor, mix14),chroma.deltaE(mix14, lightColor),
+    chroma.deltaE(lightColor, midCol),chroma.deltaE(midCol, lightColor),
+    chroma.deltaE(mix14, midCol),chroma.deltaE(midCol, mix14)
   ]
 
   let deMin = Math.min(...deltaE)
-	if (deMin < 8) {
-		deCol = "#D52A2A";
-	} else {
-		deCol = "#00AA00";
-	}
+  if (deMin < 8) {
+    deCol = "#D52A2A";
+  } else {
+    deCol = "#00AA00";
+  }
 
   textCol = lumCheck(chroma(mix11).luminance(), 0.6);
 
   document.getElementById("banner").style.backgroundColor = mix11;
-	document.getElementById("titleCol").style.color = textCol;
-	document.getElementById("subtitleCol").style.color = textCol;
-	document.getElementById("deltaColMinVal").style.color = deCol;
-	//document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+  document.getElementById("titleCol").style.color = textCol;
+  document.getElementById("subtitleCol").style.color = textCol;
+  document.getElementById("deltaColMinVal").style.color = deCol;
+  document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
+
+  map.removeLayer(geojson);
+
+  function getColor(d) {
+    return d === 7 ? mix7 :
+        d === 8 ? mix8 :
+        d === 9 ? mix9 :
+        d === 10 ? mix10 :
+        d === 11 ? mix11 :
+        d === 12  ? mix12 :
+        d === 13  ? lightColor :
+        d === 14  ? mix14 :
+            midCol;
+  }
+
+  function style(feature) {
+    return {
+      weight: 1,
+      color: lightColor,
+      opacity: 0.3,
+      fillColor: getColor(feature.properties.label),
+      fillOpacity: 1
+    };
+  }
+
+  geojson = L.geoJson(counties, {
+    style: style
+  }).addTo(map);
+
 });
