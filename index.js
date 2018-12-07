@@ -87,6 +87,18 @@ map.scrollWheelZoom.disable();
 map.dragging.disable();
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 
+var baseStyle = {
+  weight: 1,
+  color: lightColor,
+  opacity: 0.3,
+  fillColor: lightColor,
+  fillOpacity: 1
+};
+
+L.geoJson(us, {
+  style: baseStyle
+}).addTo(map);
+
 function getColor(d) {
   return d === 7 ? '#F47474' :
       d === 8 ? '#BA3A7A' :
@@ -190,9 +202,7 @@ hueb.on( 'change', function (color) {
   document.getElementById("deltaColMinVal").style.color = deCol;
   document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 
-  map.eachLayer(function (layer) {
-    map.removeLayer(layer);
-  });
+  map.removeLayer(geojson);
 
   function getColor(d) {
     return d === 7 ? midCol :
@@ -297,9 +307,7 @@ hueb2.on( 'change', function (color) {
   document.getElementById("deltaColMinVal").style.color = deCol;
   document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 
-  map.eachLayer(function (layer) {
-    map.removeLayer(layer);
-  });
+  map.removeLayer(geojson);
 
   function getColor(d) {
     return d === 7 ? mix7 :
