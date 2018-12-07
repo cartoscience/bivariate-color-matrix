@@ -84,7 +84,6 @@ canvasChange(c15, ctx15, "#7474F4");
 var map = L.map("map").setView([38.3, -96], 4);
 map.removeControl(map.zoomControl);
 map.scrollWheelZoom.disable();
-map.doubleClickZoom.disable();
 map.dragging.disable();
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 
@@ -96,13 +95,9 @@ var baseStyle = {
   fillOpacity: 1
 };
 
-var countyStyle = {
-  weight: 1,
-  color: lightColor,
-  opacity: 0.3,
-  fillColor: lightColor,
-  fillOpacity: 0
-};
+L.geoJson(us, {
+  style: baseStyle
+}).addTo(map);
 
 function getColor(d) {
   return d === 7 ? '#F47474' :
@@ -116,7 +111,7 @@ function getColor(d) {
             '#7474F4';
 }
 
-function colorStyle(feature) {
+function style(feature) {
   return {
     weight: 1,
     color: lightColor,
@@ -126,16 +121,8 @@ function colorStyle(feature) {
   };
 }
 
-L.geoJson(us, {
-  style: baseStyle
-}).addTo(map);
-
-countyColors = L.geoJson(counties_reduced, {
-  style: colorStyle
-}).addTo(map);
-
-countyOverlay = L.geoJson(counties, {
-  style: countyStyle
+geojson = L.geoJson(counties, {
+  style: style
 }).addTo(map);
 
 // On change event function for input 1
@@ -215,6 +202,8 @@ hueb.on( 'change', function (color) {
   document.getElementById("deltaColMinVal").style.color = deCol;
   document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 
+  map.removeLayer(geojson);
+
   function getColor(d) {
     return d === 7 ? midCol :
       d === 8 ? mix8 :
@@ -227,7 +216,7 @@ hueb.on( 'change', function (color) {
           mix15;
   }
 
-  function colorStyle(feature) {
+  function style(feature) {
     return {
       weight: 1,
       color: lightColor,
@@ -237,8 +226,9 @@ hueb.on( 'change', function (color) {
     };
   }
 
-  countyColors.setStyle(colorStyle);
-
+  geojson = L.geoJson(counties, {
+    style: style
+  }).addTo(map);
 });
 
 // On change event function for input 2
@@ -317,19 +307,21 @@ hueb2.on( 'change', function (color) {
   document.getElementById("deltaColMinVal").style.color = deCol;
   document.getElementById("deltaColMinVal").innerHTML = deMin.toFixed(1);
 
+  map.removeLayer(geojson);
+
   function getColor(d) {
     return d === 7 ? mix7 :
-      d === 8 ? mix8 :
-      d === 9 ? mix9 :
-      d === 10 ? mix10 :
-      d === 11 ? mix11 :
-      d === 12  ? mix12 :
-      d === 13  ? lightColor :
-      d === 14  ? mix14 :
+        d === 8 ? mix8 :
+        d === 9 ? mix9 :
+        d === 10 ? mix10 :
+        d === 11 ? mix11 :
+        d === 12  ? mix12 :
+        d === 13  ? lightColor :
+        d === 14  ? mix14 :
             midCol;
   }
 
-  function colorStyle(feature) {
+  function style(feature) {
     return {
       weight: 1,
       color: lightColor,
@@ -339,6 +331,8 @@ hueb2.on( 'change', function (color) {
     };
   }
 
-  countyColors.setStyle(colorStyle);
+  geojson = L.geoJson(counties, {
+    style: style
+  }).addTo(map);
 
 });
