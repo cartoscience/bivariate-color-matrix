@@ -88,7 +88,7 @@ map.dragging.disable();
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 
 var baseStyle = {
-  weight: 1,
+  weight: 7,
   color: lightColor,
   opacity: 0.3,
   fillColor: lightColor,
