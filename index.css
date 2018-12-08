@@ -40,6 +40,9 @@ p {
 	color: #202020;
 	font-style: italic;
 }
+.leaflet-interactive {
+  cursor: default;
+}
 .footer {
 	text-align: center;
 	font-size: 11px;
@@ -105,4 +108,4 @@ div#map {
   background-color: #202020;
   width: 675px;
   height: 370px;
-} 
+}
