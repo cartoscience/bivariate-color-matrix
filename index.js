@@ -86,6 +86,9 @@ map.removeControl(map.zoomControl);
 map.scrollWheelZoom.disable();
 map.doubleClickZoom.disable();
 map.dragging.disable();
+map.touchZoom.disable();
+map.boxZoom.disable();
+map.keyboard.disable();
 document.getElementsByClassName( 'leaflet-control-attribution' )[0].style.display = 'none';
 
 var baseStyle = {
