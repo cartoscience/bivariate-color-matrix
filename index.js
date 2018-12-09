@@ -81,7 +81,13 @@ canvasChange(c14, ctx14, "#AEAEEE");
 canvasChange(c15, ctx15, "#7474F4");
 
 //Map initialization
-var map = L.map("map").setView([38.3, -96], 4);
+var crs = new L.Proj.CRS('EPSG:2163',
+  '+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs',
+  {
+    resolutions: [8192]
+  }
+);
+var map = L.map("map", {crs: crs}).setView([38.3, -96], 4);
 map.removeControl(map.zoomControl);
 map.scrollWheelZoom.disable();
 map.doubleClickZoom.disable();
