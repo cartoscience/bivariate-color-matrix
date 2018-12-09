@@ -213,6 +213,7 @@ hueb.on( 'change', function (color) {
 
   document.getElementById("banner").style.backgroundColor = mix11;
   document.getElementById("logo").style.backgroundColor = mix11;
+  document.getElementById("info").style.color = mix11;
   document.getElementById("titleCol").style.color = textCol;
   document.getElementById("subtitleCol").style.color = textCol;
   document.getElementById("deltaColMinVal").style.color = deCol;
@@ -316,6 +317,7 @@ hueb2.on( 'change', function (color) {
 
   document.getElementById("banner").style.backgroundColor = mix11;
   document.getElementById("logo").style.backgroundColor = mix11;
+  document.getElementById("info").style.color = mix11;
   document.getElementById("titleCol").style.color = textCol;
   document.getElementById("subtitleCol").style.color = textCol;
   document.getElementById("deltaColMinVal").style.color = deCol;
