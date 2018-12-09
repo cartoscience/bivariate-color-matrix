@@ -87,7 +87,7 @@ var crs = new L.Proj.CRS('EPSG:2163',
     resolutions: [8192]
   }
 );
-var map = L.map("map", {crs: crs}).setView([38.3, -96], 4);
+var map = L.map("map", {crs: crs}).setView([38.3, -96], 0);
 map.removeControl(map.zoomControl);
 map.scrollWheelZoom.disable();
 map.doubleClickZoom.disable();
