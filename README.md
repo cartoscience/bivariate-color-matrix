@@ -8,7 +8,7 @@ Bivariate Color Matrix designed and developed by <a target="_blank" rel="noopene
 <br><br>
 Color picker dependencies from <a target="_blank" rel="noopener noreferrer" href="http://huebee.buzz/">Huebee</a> by <a target="_blank" rel="noopener noreferrer" href="https://metafizzy.co/">Metafizzy</a> | Color manipulation dependencies from <a target="_blank" rel="noopener noreferrer" href="https://gka.github.io/chroma.js/">Chroma.js</a>
 <br><br>
-Color picking and manipulation dependencies from <a href="http://huebee.buzz/" target="_blank" rel="noopener noreferrer">Huebee</a> by <a href="https://metafizzy.co/" target="_blank" rel="noopener noreferrer">Metafizzy</a> and <a href="https://gka.github.io/chroma.js/" target="_blank" rel="noopener noreferrer">Chroma.js</a> | Mapping dependencies from <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> and <a href="http://proj4js.org/" target="_blank" rel="noopener noreferrer">Proj4js</a> / <a href="https://kartena.github.io/Proj4Leaflet/" target="_blank" rel="noopener noreferrer">Proj4Leaflet</a>
+Mapping dependencies from <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> and <a href="http://proj4js.org/" target="_blank" rel="noopener noreferrer">Proj4js</a> / <a href="https://kartena.github.io/Proj4Leaflet/" target="_blank" rel="noopener noreferrer">Proj4Leaflet</a>
 <br><br>
 <i>Check out these fantastic multivariate choropleth mapping guides by <a target="_blank" rel="noopener noreferrer" href="http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/">Joshua Stevens</a> and <a target="_blank" rel="noopener noreferrer" href="https://adventuresinmapping.com/2018/10/31/cmyk-vice/">John Nelson</a></i>
 <br><br>
