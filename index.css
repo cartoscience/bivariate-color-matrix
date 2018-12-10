@@ -69,19 +69,6 @@ p {
 	font-weight: 900;
 	color: #00AA00;
 }
-.fa {
-  font-size: 20px;
-  width: 20px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-}
-.fa:hover {
-    opacity: 0.7;
-}
-.fa-twitter {
-  color: #55ACEE;
-}
 div#d3 {
 	padding-top: 15px;
 }
