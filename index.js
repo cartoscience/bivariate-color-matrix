@@ -59,7 +59,7 @@ const canvasChange = (canvas, context, color) => {
   context.textAlign = "center";
   context.fillStyle = textCol;
   canvas.style.backgroundColor = color;
-  context.fillText(color.toString().toUpperCase(),29,32.5);
+  context.fillText(color.toString().toUpperCase(),31,33);
 }
 
 let textCol;
@@ -106,7 +106,7 @@ var baseStyle = {
 };
 
 var countyStyle = {
-  weight: 1,
+  weight: 0.5,
   color: lightColor,
   opacity: 0.3,
   fillColor: lightColor,
@@ -239,9 +239,6 @@ hueb.on( 'change', function (color) {
 
   function colorStyle(feature) {
     return {
-      weight: 1,
-      color: lightColor,
-      opacity: 0.3,
       fillColor: getColor(feature.properties.label),
       fillOpacity: 1
     };
@@ -343,9 +340,6 @@ hueb2.on( 'change', function (color) {
 
   function colorStyle(feature) {
     return {
-      weight: 1,
-      color: lightColor,
-      opacity: 0.3,
       fillColor: getColor(feature.properties.label),
       fillOpacity: 1
     };
