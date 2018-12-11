@@ -20,15 +20,23 @@ p {
 	line-height: 0;
 }
 .color-input {
-	border-radius: 4px;
+	border: 2px solid #202020;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 	text-align: center;
-	width: 175px;
+	width: 181px;
 	height: 15px;
 }
 .color-input2 {
-	border-radius: 4px;
+	border: 2px solid #202020;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 	text-align: center;
-	width: 175px;
+	width: 181px;
 	height: 15px;
 }
 .small {
@@ -102,7 +110,7 @@ div#shadow {
 }
 div#main {
 	padding-top: 120px;
-	width:670px;
+	width:675px;
 	margin:auto;
 }
 #main > div{
@@ -118,26 +126,66 @@ div#map {
   height: 370px;
 }
 #myCanvas {
+  border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#myCanvas2 {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 #myCanvas3 {
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 #myCanvas4 {
+  border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#myCanvas5 {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 #myCanvas6 {
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 #myCanvas7 {
   border-top-left-radius: 4px;
-}
-#myCanvas9 {
   border-top-right-radius: 4px;
-}
-#myCanvas13 {
   border-bottom-left-radius: 4px;
 }
+#myCanvas8 {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#myCanvas9 {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#myCanvas10 {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#myCanvas12 {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#myCanvas13 {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#myCanvas14 {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 #myCanvas15 {
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
