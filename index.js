@@ -209,8 +209,10 @@ hueb.on( 'change', function (color) {
   ]
 
   let deMin = Math.min(...deltaE)
-  if (deMin < 8) {
+  if (deMin < 6) {
     deCol = "#D52A2A";
+  } else if (deMin < 8) {
+    deCol = "#FFAA00";
   } else {
     deCol = "#00AA00";
   }
@@ -310,8 +312,10 @@ hueb2.on( 'change', function (color) {
   ]
 
   let deMin = Math.min(...deltaE)
-  if (deMin < 8) {
+  if (deMin < 6) {
     deCol = "#D52A2A";
+  } else if (deMin < 8) {
+    deCol = "#FFAA00";
   } else {
     deCol = "#00AA00";
   }
