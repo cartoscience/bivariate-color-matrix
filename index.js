@@ -59,7 +59,7 @@ const canvasChange = (canvas, context, color) => {
   context.textAlign = "center";
   context.fillStyle = textCol;
   canvas.style.backgroundColor = color;
-  context.fillText(color.toString().toUpperCase(),30,33);
+  context.fillText(color.toString().toUpperCase(),29,32.5);
 }
 
 let textCol;
