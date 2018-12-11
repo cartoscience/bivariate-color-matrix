@@ -19,24 +19,29 @@ p {
 	font-family: var(--font-variable);
 	line-height: 0;
 }
+.huebee__container {
+  width: 166px;
+  border-radius: 0;
+  background-color: #E8E8E8;
+}
+.huebee__cursor {
+  width: 15px;
+  height: 15px;
+}
 .color-input {
-	border: 2px solid #202020;
+	border: 2px solid #E8E8E8;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
 	text-align: center;
-	width: 181px;
+	width: 182px;
 	height: 15px;
 }
 .color-input2 {
-	border: 2px solid #202020;
+	border: 2px solid #E8E8E8;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
 	text-align: center;
-	width: 181px;
+	width: 182px;
 	height: 15px;
 }
 .small {
@@ -109,14 +114,15 @@ div#shadow {
   height: 4px;
 }
 div#main {
-	padding-top: 120px;
+	padding-top: 110px;
+	padding-left: 75px;
 	width:675px;
 	margin:auto;
 }
 #main > div{
   float:left;
   text-align: center;
-  padding-left: 12px;
+  padding-left: 10px;
   margin: 10px;
 }
 div#map {
@@ -125,67 +131,33 @@ div#map {
   width: 675px;
   height: 370px;
 }
-#myCanvas {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+div#midRow {
+	margin-top: -5px;
 }
-#myCanvas2 {
+div#bottomRow {
+	margin-top: -5px;
+}
+#myCanvas {
   border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 #myCanvas3 {
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 #myCanvas4 {
-  border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-#myCanvas5 {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 #myCanvas6 {
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 #myCanvas7 {
   border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-#myCanvas8 {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
 }
 #myCanvas9 {
-  border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-#myCanvas10 {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-#myCanvas12 {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 #myCanvas13 {
-  border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-#myCanvas14 {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 #myCanvas15 {
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
