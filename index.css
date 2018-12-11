@@ -117,3 +117,6 @@ div#map {
   width: 675px;
   height: 370px;
 }
+#myCanvas1 {
+  border-bottom-left-radius: 4px;
+}
