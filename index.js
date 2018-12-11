@@ -53,12 +53,16 @@ const lumCheck = (lum, standard) => {
 }
 
 const canvasChange = (canvas, context, color) => {
+  context = canvas.getContext('2d');
+  canvas.style.width="59px";
+  canvas.style.height="59px";
   context.clearRect(0,0,canvas.width,canvas.height);
   textCol = lumCheck(chroma(color).luminance(), 0.179);
 
   context.textAlign = "center";
   context.fillStyle = textCol;
   canvas.style.backgroundColor = color;
+  context.scale(2,2);
   context.fillText(color.toString().toUpperCase(),29,32.5);
 }
 
