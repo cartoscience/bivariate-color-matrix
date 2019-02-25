@@ -1,6 +1,7 @@
 body {
-  background-color: #202020;
-  }
+  background-image: linear-gradient(to right top, #8e4f4f, #76444e, #5d3a49, #45313f, #2f2831, #2e2b34, #2c2d36, #2c3037, #34424e, #385764, #3b6c77, #408285);
+  background-attachment: fixed;
+ }
 :root {
 	--font-variable: "Comfortaa";
 }
@@ -14,10 +15,10 @@ a:hover {
 	color: #E8E8E8;
 }
 p {
-	color: #E8E8E8;
-	font-size: 14px;
-	font-family: var(--font-variable);
-	line-height: 0;
+  color: #E8E8E8;
+  font-size: 14px;
+  font-family: var(--font-variable);
+  line-height: 0;
 }
 .huebee__container {
   width: 166px;
@@ -50,7 +51,7 @@ p {
 .title {
 	color: #E8E8E8;
 	text-align: center;
-	font-size: 22px;
+	font-size: 24px;
 	font-family: var(--font-variable);
 	line-height: 0.5;
 	padding-top: 11px;
@@ -62,7 +63,6 @@ p {
 	font-family: var(--font-variable);
 	line-height: 0.5;
 	margin: 20px;
-	color: #202020;
 	font-style: italic;
 }
 .leaflet-interactive {
@@ -74,12 +74,9 @@ p {
 	font-family: var(--font-variable);
 	line-height: 1.2;
 	color: #E8E8E8;
-	clear:left;
-	margin: 10px;
 	padding-top: 5px;
 }
 .delta {
-	text-align: center;
 	font-size: 13px;
 	font-family: var(--font-variable);
 	line-height: 1;
@@ -87,7 +84,6 @@ p {
 	color: #E8E8E8;
 }
 .deltaMin {
-	text-align: center;
 	font-size: 23px;
 	font-family: var(--font-variable);
 	line-height: 0;
@@ -95,36 +91,34 @@ p {
 	color: #00AA00;
 }
 div#banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #B474B4;
-  width: 100%;
-  height: 100px;
-}
-div#shadow {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  background-color: #E8E8E8;
-  width: 100%;
-  height: 4px;
+  margin: auto;
+  padding-top: 30px;
 }
 div#main {
-	padding-top: 110px;
-	padding-left: 75px;
-	width:750px;
-	margin:auto;
+  margin: auto;
+  padding-top: 40px;
+  padding-left: 75px;
+  width:750px;
 }
-#main > div{
-  float:left;
-  text-align: center;
-  padding-left: 10px;
-  margin: 10px;
+div#d1 {
+	padding-left: 30px;
+	text-align: center;
+	display: inline-block;
+}
+div#d2 {
+	padding-left: 20px;
+	text-align: center;
+	display: inline-block;
+}
+div#d3 {
+	vertical-align: top;
+	padding-left: 20px;
+	text-align: center;
+	display: inline-block;
 }
 div#map {
   margin: auto;
-  background-color: #202020;
+  background-color: rgba(0,0,0,0);
   width: 675px;
   height: 370px;
 }
