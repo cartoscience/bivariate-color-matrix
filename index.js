@@ -64,21 +64,21 @@ const canvasChange = (canvas, context, color) => {
 
 let textCol;
 //initial canvas color build
-canvasChange(c, ctx, "#FF0000");
-canvasChange(c2, ctx2, "#F47474");
+canvasChange(c, ctx, "#0071aa");
+canvasChange(c2, ctx2, "#74adc9");
 canvasChange(c3, ctx3, lightColor);
-canvasChange(c4, ctx4, "#0000FF");
-canvasChange(c5, ctx5, "#7474F4");
+canvasChange(c4, ctx4, "#aa0071");
+canvasChange(c5, ctx5, "#c974ad");
 canvasChange(c6, ctx6, lightColor);
-canvasChange(c7, ctx7, "#F47474");
-canvasChange(c8, ctx8, "#BA3A7A");
-canvasChange(c9, ctx9, "#800080");
-canvasChange(c10, ctx10, "#EEAEAE");
-canvasChange(c11, ctx11, "#B474B4");
-canvasChange(c12, ctx12, "#7A3ABA");
+canvasChange(c7, ctx7, "#74adc9");
+canvasChange(c8, ctx8, "#6573ab");
+canvasChange(c9, ctx9, "#55398e");
+canvasChange(c10, ctx10, "#aecbd9");
+canvasChange(c11, ctx11, "#9f91bb");
+canvasChange(c12, ctx12, "#8f579d");
 canvasChange(c13, ctx13, lightColor);
-canvasChange(c14, ctx14, "#AEAEEE");
-canvasChange(c15, ctx15, "#7474F4");
+canvasChange(c14, ctx14, "#d9aeca");
+canvasChange(c15, ctx15, "#c974ad");
 
 //Map initialization
 var crs = new L.Proj.CRS('EPSG:2163',
@@ -114,15 +114,15 @@ var countyStyle = {
 };
 
 function getColor(d) {
-  return d === 7 ? '#F47474' :
-      d === 8 ? '#BA3A7A' :
-      d === 9 ? '#800080' :
-      d === 10 ? '#EEAEAE' :
-      d === 11 ? '#B474B4' :
-      d === 12  ? '#7A3ABA' :
-      d === 13  ? '#E8E8E8' :
-      d === 14  ? '#AEAEEE' :
-            '#7474F4';
+  return d === 7 ? '#74adc9' :
+      d === 8 ? '#6573ab' :
+      d === 9 ? '#55398e' :
+      d === 10 ? '#aecbd9' :
+      d === 11 ? '#9f91bb' :
+      d === 12  ? '#8f579d' :
+      d === 13  ? '#e8e8e8' :
+      d === 14  ? '#d9aeca' :
+            '#c974ad';
 }
 
 function colorStyle(feature) {
