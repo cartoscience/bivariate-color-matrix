@@ -84,6 +84,7 @@ p {
 	color: #E8E8E8;
 }
 .deltaMin {
+	padding-top: 10px;
 	font-size: 23px;
 	font-family: var(--font-variable);
 	line-height: 0;
