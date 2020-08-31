@@ -10,6 +10,6 @@ Color picker dependencies from <a target="_blank" rel="noopener noreferrer" href
 <br><br>
 Mapping dependencies from <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> and <a href="http://proj4js.org/" target="_blank" rel="noopener noreferrer">Proj4js</a> / <a href="https://kartena.github.io/Proj4Leaflet/" target="_blank" rel="noopener noreferrer">Proj4Leaflet</a>
 <br><br>
-<i>Check out these fantastic multivariate choropleth mapping guides by <a target="_blank" rel="noopener noreferrer" href="http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/">Joshua Stevens</a> and <a target="_blank" rel="noopener noreferrer" href="https://adventuresinmapping.com/2018/10/31/cmyk-vice/">John Nelson</a></i>
+<i>Check out these fantastic multivariate choropleth mapping guides by <a target="_blank" rel="noopener noreferrer" href="http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/">Joshua Stevens</a>, <a target="_blank" rel="noopener noreferrer" href="https://adventuresinmapping.com/2018/10/31/cmyk-vice/">John Nelson</a>, and <a target="_blank" rel="noopener noreferrer" href="https://nowosad.github.io/post/cbc-bp2/">Jakub Nowosad</a></i>
 <br><br>
 &copy; 2018 <a target="_blank" rel="noopener noreferrer" href="https://cartoscience.com">Cartoscience</a>
